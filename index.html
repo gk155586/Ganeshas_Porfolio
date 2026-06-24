@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ganesh Kalapad · Full Stack Engineer</title>
+  <meta name="description" content="Portfolio of Ganesh Sadashiv Kalapad — Full Stack Developer & Software Engineer from Pune. Expert in Next.js, React, Node.js, AWS.">
+  <meta name="author" content="Ganesh Sadashiv Kalapad">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ── LOADER ── -->
+  <div id="loader" class="loader">
+    <svg class="loader-svg" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"/>
+      <circle class="loader-ring" cx="50" cy="50" r="45" fill="none" stroke="url(#lg)" stroke-width="2" stroke-linecap="round"/>
+      <defs>
+        <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#6366f1"/>
+          <stop offset="100%" stop-color="#06b6d4"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="loader-label">GK</span>
+  </div>
+
+
+
+  <!-- ── SCROLL PROGRESS ── -->
+  <div id="scrollBar" class="scroll-bar"></div>
+
+  <!-- ── NAV ── -->
+  <nav id="nav" class="nav">
+    <a href="#" class="nav-brand">
+      <span class="brand-bracket">{</span> GK <span class="brand-bracket">}</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" class="nl">About</a>
+      <a href="#skills" class="nl">Stack</a>
+      <a href="#experience" class="nl">Work</a>
+      <a href="#projects" class="nl">Projects</a>
+      <a href="#certs" class="nl">Certs</a>
+      <a href="#contact" class="nl">Contact</a>
+      <a href="mailto:ganeshkalapadgk@gmail.com" class="nl nav-hire">Hire Me ↗</a>
+    </div>
+    <button class="nav-burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       HERO — SPLIT BENTO
+  ══════════════════════════════════════════ -->
+  <section id="hero" class="hero">
+    <canvas id="heroCanvas" class="hero-canvas"></canvas>
+
+    <div class="hero-grid">
+      <!-- Left: Text -->
+      <div class="hero-left">
+        <div class="hero-pill">
+          <span class="pill-dot"></span> Open to opportunities
+        </div>
+        <h1 class="hero-name">
+          <span class="name-line">Ganesh</span>
+          <span class="name-line name-accent">Kalapad.</span>
+        </h1>
+        <div class="hero-role">
+          <span class="role-static">I craft&nbsp;</span>
+          <span class="role-dynamic" id="roleDynamic"></span>
+          <span class="role-caret">_</span>
+        </div>
+        <p class="hero-bio">
+          Full-Stack Engineer · Java Backend · Real-Time Systems<br>
+          Pune, Maharashtra · B.Tech CSE '26
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-main">View Work <span>→</span></a>
+          <a href="#contact" class="btn-ghost">Say Hello</a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/gk155586" target="_blank" rel="noopener" class="hs" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02.004 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.69.82.58C20.56 21.8 24 17.31 24 12 24 5.37 18.63 0 12 0z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/ganesh-kalapad-4100a4259" target="_blank" rel="noopener" class="hs" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM3.56 20.45h3.56V9H3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg>
+          </a>
+          <a href="mailto:ganeshkalapadgk@gmail.com" class="hs" aria-label="Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Bento Cards -->
+      <div class="hero-right">
+        <div class="bento-grid">
+          <!-- Code card -->
+          <div class="bento bento-code">
+            <div class="bento-bar">
+              <span class="bb red"></span><span class="bb yellow"></span><span class="bb green"></span>
+              <span class="bento-file">developer.ts</span>
+            </div>
+            <pre class="bento-pre"><code><span class="t-kw">const</span> <span class="t-var">ganesh</span> = {
+  <span class="t-prop">role</span>: <span class="t-str">"Full Stack Dev"</span>,
+  <span class="t-prop">stack</span>: [<span class="t-str">"Next.js"</span>, <span class="t-str">"Node"</span>,
+           <span class="t-str">"AWS"</span>, <span class="t-str">"TypeScript"</span>],
+  <span class="t-prop">apis</span>: <span class="t-num">50</span><span class="t-op">+</span>,
+  <span class="t-prop">available</span>: <span class="t-bool">true</span> <span class="t-cmt">// hire me!</span>
+};</code></pre>
+          </div>
+
+          <!-- Stats row -->
+          <div class="bento bento-stat">
+            <span class="stat-big" data-target="50">0</span><span class="stat-suf">+</span>
+            <span class="stat-cap">APIs Built</span>
+          </div>
+          <div class="bento bento-stat bento-stat--cyan">
+            <span class="stat-big" data-target="3">0</span>
+            <span class="stat-cap">Prod Apps</span>
+          </div>
+          <div class="bento bento-stat bento-stat--violet">
+            <span class="stat-big" data-target="3">0</span>
+            <span class="stat-cap">Internships</span>
+          </div>
+
+          <!-- Location card -->
+          <div class="bento bento-loc">
+            <div class="loc-map">
+              <div class="loc-pin"></div>
+            </div>
+            <div class="loc-info">
+              <span class="loc-city">Pune, India</span>
+              <span class="loc-sub">🇮🇳 IST · <span id="liveTime">--:-- --</span></span>
+            </div>
+          </div>
+
+          <!-- Recruiter Appeal Card -->
+          <div class="bento bento-hire reveal">
+            <div class="hire-badge">
+              <span class="hire-dot"></span>
+              Open to Work
+            </div>
+            <p class="hire-headline">Looking for a <strong>Full Stack Engineer</strong> who ships fast?</p>
+            <div class="hire-chips">
+              <span>⚡ 50+ APIs Built</span>
+              <span>🚀 3 Prod Apps</span>
+              <span>📄 2 Publications</span>
+            </div>
+            <a href="mailto:ganeshkalapadgk@gmail.com" class="hire-cta">Let's Connect →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-track"><div class="scroll-thumb"></div></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════════ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="sec-label">// 01 about</div>
+      <h2 class="sec-title">Who I <em>Am</em></h2>
+
+      <div class="about-layout">
+        <div class="about-text reveal">
+          <p>I'm <strong>Ganesh Sadashiv Kalapad</strong>, a Computer Science graduate from MGM's College of Engineering, Nanded (B.Tech '26). I specialize in building full-stack web applications, real-time systems, and production-grade backend APIs.</p>
+          <p>With internship experience at <strong>FreshIn10</strong> and <strong>YugaYatra Retail</strong>, and a published research paper in IJIRT, I combine academic depth with real-world engineering. I'm driven by clean code, scalable architecture, and meaningful products.</p>
+          <p>Seeking roles as a <strong>Software Engineer · Full Stack Developer · Backend Developer</strong>.</p>
+          <div class="about-links">
+            <a href="mailto:ganeshkalapadgk@gmail.com" class="about-link">ganeshkalapadgk@gmail.com</a>
+            <a href="tel:+918830080013" class="about-link">+91 88300 80013</a>
+          </div>
+        </div>
+
+        <div class="about-edu reveal">
+          <h3 class="edu-heading">Education</h3>
+          <div class="edu-timeline">
+            <div class="edu-item">
+              <div class="edu-dot"></div>
+              <div>
+                <strong>B.Tech — Computer Science & Engineering</strong>
+                <span>MGM's College of Engineering, Nanded · 2022–2026</span>
+              </div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-dot"></div>
+              <div>
+                <strong>12th Standard · 83%</strong>
+                <span>Pareshwar Madhyamik Vidyalaya · 2021–2022</span>
+              </div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-dot"></div>
+              <div>
+                <strong>10th Standard · 75%</strong>
+                <span>Saibaba Primary School, Parbhani · 2019–2020</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SKILLS
+  ══════════════════════════════════════════ -->
+  <section id="skills" class="section section-dark">
+    <div class="container">
+      <div class="sec-label">// 02 tech stack</div>
+      <h2 class="sec-title">What I <em>Build With</em></h2>
+
+      <div class="stack-grid">
+        <div class="stack-card reveal" data-delay="0">
+          <div class="stack-icon">💻</div>
+          <h3>Languages</h3>
+          <div class="tags">
+            <span class="tag tag--a">Java</span>
+            <span class="tag tag--a">TypeScript</span>
+            <span class="tag tag--a">JavaScript</span>
+            <span class="tag tag--b">Python</span>
+            <span class="tag tag--b">C</span>
+            <span class="tag tag--a">DSA</span>
+            <span class="tag tag--a">OOP</span>
+          </div>
+        </div>
+        <div class="stack-card reveal" data-delay="1">
+          <div class="stack-icon">🖼️</div>
+          <h3>Frontend</h3>
+          <div class="tags">
+            <span class="tag tag--a">Next.js</span>
+            <span class="tag tag--a">React.js</span>
+            <span class="tag tag--a">Tailwind CSS</span>
+            <span class="tag tag--a">HTML5 / CSS3</span>
+            <span class="tag tag--b">Framer Motion</span>
+            <span class="tag tag--b">Zustand</span>
+          </div>
+        </div>
+        <div class="stack-card reveal" data-delay="2">
+          <div class="stack-icon">⚙️</div>
+          <h3>Backend</h3>
+          <div class="tags">
+            <span class="tag tag--a">Node.js</span>
+            <span class="tag tag--a">Express.js</span>
+            <span class="tag tag--a">REST APIs</span>
+            <span class="tag tag--a">Socket.io</span>
+            <span class="tag tag--a">JWT Auth</span>
+            <span class="tag tag--b">PHP</span>
+          </div>
+        </div>
+        <div class="stack-card reveal" data-delay="3">
+          <div class="stack-icon">🗄️</div>
+          <h3>Databases</h3>
+          <div class="tags">
+            <span class="tag tag--a">PostgreSQL</span>
+            <span class="tag tag--a">MySQL</span>
+            <span class="tag tag--a">MongoDB</span>
+            <span class="tag tag--a">Prisma ORM</span>
+          </div>
+        </div>
+        <div class="stack-card reveal" data-delay="4">
+          <div class="stack-icon">☁️</div>
+          <h3>DevOps & Cloud</h3>
+          <div class="tags">
+            <span class="tag tag--a">AWS</span>
+            <span class="tag tag--a">Vercel</span>
+            <span class="tag tag--a">Render</span>
+            <span class="tag tag--a">Git / GitHub</span>
+            <span class="tag tag--b">Turborepo</span>
+          </div>
+        </div>
+        <div class="stack-card reveal" data-delay="5">
+          <div class="stack-icon">🤖</div>
+          <h3>AI Tools</h3>
+          <div class="tags">
+            <span class="tag tag--b">OpenAI API</span>
+            <span class="tag tag--b">LangChain</span>
+            <span class="tag tag--b">GitHub Copilot</span>
+            <span class="tag tag--b">Gemini</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       EXPERIENCE
+  ══════════════════════════════════════════ -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="sec-label">// 03 experience</div>
+      <h2 class="sec-title">Where I've <em>Worked</em></h2>
+
+      <div class="xp-list">
+
+        <div class="xp-item reveal">
+          <div class="xp-left">
+            <div class="xp-dot active"></div>
+            <div class="xp-line"></div>
+          </div>
+          <div class="xp-body">
+            <div class="xp-badge xp-badge--live">● Live</div>
+            <h3>Software Engineer Intern</h3>
+            <div class="xp-meta">YugaYatra Retail (OPC) Pvt Ltd · <time>Feb 2026 – Present</time></div>
+            <ul class="xp-points">
+              <li>Contributed to software development, backend API implementations, and frontend component integration.</li>
+              <li>Optimized database queries and system performance to enhance overall reliability.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="xp-item reveal">
+          <div class="xp-left">
+            <div class="xp-dot"></div>
+            <div class="xp-line"></div>
+          </div>
+          <div class="xp-body">
+            <h3>Software Engineer Intern</h3>
+            <div class="xp-meta">FreshIn10 · Remote · <time>Feb – May 2026</time></div>
+            <ul class="xp-points">
+              <li>Architected a <strong>multi-app monorepo</strong> (Customer · Admin · Delivery) using Next.js, TypeScript & Turborepo, serving 3 production apps.</li>
+              <li>Implemented <strong>real-time order tracking</strong> via Socket.io + JWT Auth — reduced latency by <strong>40%</strong>.</li>
+              <li>Developed <strong>50+ RESTful APIs</strong> with Express.js & Prisma ORM on AWS — reduced avg response time by <strong>25%</strong>.</li>
+              <li>Integrated <strong>Razorpay</strong> payment gateway; managed state with <strong>Zustand</strong> across all 3 platforms.</li>
+            </ul>
+            <div class="xp-tags">
+              <span>Next.js</span><span>TypeScript</span><span>Socket.io</span><span>AWS</span><span>Prisma</span><span>Razorpay</span><span>Turborepo</span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="xp-item reveal">
+          <div class="xp-left">
+            <div class="xp-dot"></div>
+          </div>
+          <div class="xp-body">
+            <h3>Java Developer Intern</h3>
+            <div class="xp-meta">Previous Company · <time>1 Month</time></div>
+            <ul class="xp-points">
+              <li>Contributed to UI design and backend integration for enterprise web applications using Java.</li>
+              <li>Integrated backend services with frontend components for seamless data flow.</li>
+            </ul>
+            <div class="xp-tags">
+              <span>Java</span><span>Enterprise Apps</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       PROJECTS
+  ══════════════════════════════════════════ -->
+  <section id="projects" class="section section-dark">
+    <div class="container">
+      <div class="sec-label">// 04 projects</div>
+      <h2 class="sec-title">Things I've <em>Built</em></h2>
+
+      <div class="proj-grid">
+
+        <!-- Featured -->
+        <div class="proj-card proj-featured reveal">
+          <div class="proj-glow"></div>
+          <div class="proj-top">
+            <span class="proj-badge">★ Featured</span>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <a href="https://drive.google.com/drive/folders/1CB5qH6ZZJrvTDgCZ08Bax8RMH0uAGsAP?usp=drive_link" target="_blank" rel="noopener" class="proj-drive-btn" title="View Project Assets on Google Drive">
+                <svg width="16" height="16" viewBox="0 0 87.3 78" fill="currentColor" style="margin-right:5px;flex-shrink:0"><path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8H0c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/><path d="M43.65 25L29.9 1.2C28.55 2 27.4 3.1 26.6 4.5L1.2 47.5C.4 48.9 0 50.45 0 52h27.5z" fill="#00ac47"/><path d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75L86.1 56.5c.8-1.4 1.2-2.95 1.2-4.5H59.8l5.85 10.65z" fill="#ea4335"/><path d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/><path d="M59.8 52H27.5L13.75 75.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.4 4.5-1.2z" fill="#2684fc"/><path d="M73.4 26.5l-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25 59.8 52h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/></svg>
+                Assets
+              </a>
+              <a href="https://github.com/gk155586/FreshIn10" target="_blank" rel="noopener" class="proj-gh" title="View on GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02.004 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.69.82.58C20.56 21.8 24 17.31 24 12 24 5.37 18.63 0 12 0z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="proj-num">01</div>
+          <h3>Multi-App Monorepo & Real-Time Order Platform</h3>
+          <p class="proj-company">FreshIn10</p>
+          <p class="proj-desc">Architected a full ecosystem — Customer, Admin, and Delivery apps — on a single Turborepo. Real-time order tracking, 50+ APIs, Razorpay integration, deployed on AWS.</p>
+          <div class="proj-metrics-row">
+            <div class="pm"><strong>50+</strong><span>APIs</span></div>
+            <div class="pm"><strong>3</strong><span>Apps</span></div>
+            <div class="pm"><strong>-40%</strong><span>Latency</span></div>
+            <div class="pm"><strong>-25%</strong><span>API Time</span></div>
+          </div>
+          <div class="proj-tech">
+            <span>Next.js</span><span>Socket.io</span><span>Express.js</span><span>AWS</span><span>Prisma</span><span>Turborepo</span>
+          </div>
+        </div>
+
+        <div class="proj-card reveal">
+          <div class="proj-glow"></div>
+          <div class="proj-num">02</div>
+          <h3>Real-Time News Sentiment Analyzer</h3>
+          <p class="proj-company">Academic / Independent</p>
+          <p class="proj-desc">NLP pipeline using Python, NLTK & TextBlob to classify news from 10+ sources. Interactive Render-deployed dashboard with real-time sentiment by domain.</p>
+          <div class="proj-tech">
+            <span>Python</span><span>NLTK</span><span>TextBlob</span><span>Pandas</span><span>Matplotlib</span><span>Render</span>
+          </div>
+          <div class="proj-pub">
+            <span class="pub-chip">📄 Published in IJIRT Vol.12 Issue 8</span>
+          </div>
+        </div>
+
+        <div class="proj-card reveal">
+          <div class="proj-glow"></div>
+          <div class="proj-top">
+            <div></div>
+            <a href="https://github.com/gk155586/Online_feedback-form-system" target="_blank" rel="noopener" class="proj-gh" title="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02.004 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.21.69.82.58C20.56 21.8 24 17.31 24 12 24 5.37 18.63 0 12 0z"/></svg>
+            </a>
+          </div>
+          <div class="proj-num">03</div>
+          <h3>Feedback Form System</h3>
+          <p class="proj-company">Academic Project</p>
+          <p class="proj-desc">Dynamic feedback platform with PHP & MySQL, role-based admin dashboard, client & server-side validation. Deployed to Vercel.</p>
+          <div class="proj-tech">
+            <span>PHP</span><span>MySQL</span><span>HTML5</span><span>CSS3</span><span>Vercel</span>
+          </div>
+        </div>
+
+        <div class="proj-card reveal">
+          <div class="proj-glow"></div>
+          <div class="proj-num">04</div>
+          <h3>Library Management System</h3>
+          <p class="proj-company">Academic Project</p>
+          <p class="proj-desc">Comprehensive LMS in Java with OOP principles, MySQL persistence, optimized cataloging, issue/return management, and auto fine calculation.</p>
+          <div class="proj-tech">
+            <span>Java</span><span>MySQL</span><span>OOP</span><span>JDBC</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CERTIFICATIONS — REAL IMAGE GALLERY
+  ══════════════════════════════════════════ -->
+  <section id="certs" class="section">
+    <div class="container">
+      <div class="sec-label">// 05 certifications</div>
+      <h2 class="sec-title">Credentials & <em>Achievements</em></h2>
+
+      <!-- Certificate Filters -->
+      <div class="cert-filters reveal">
+        <button class="cf-btn active" data-filter="all">All</button>
+        <button class="cf-btn" data-filter="cloud">Cloud & AI</button>
+        <button class="cf-btn" data-filter="iot">IoT & Systems</button>
+        <button class="cf-btn" data-filter="web">Web Dev</button>
+        <button class="cf-btn" data-filter="community">Community</button>
+      </div>
+
+      <!-- Certificate Gallery -->
+      <div class="cert-gallery">
+
+        <!-- 1. AWS Certified Developer (Cloud & AI) -->
+        <div class="cert-card cert-card--real reveal" data-category="cloud" data-cert="0">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_aws_developer.png" alt="AWS Certified Developer Associate - Infosys Springboard" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">☁️</div>
+            <h4>AWS Certified Developer — Associate</h4>
+            <p>Infosys Springboard</p>
+            <span class="cert-date">Completed May 2026</span>
+          </div>
+        </div>
+
+        <!-- 2. Full Stack Program Completion (Web Dev) -->
+        <div class="cert-card cert-card--real reveal" data-category="web" data-cert="1">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_full_stack_infosys.png" alt="Full Stack Program Completion - Infosys Springboard" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">💻</div>
+            <h4>Full Stack Program Completion</h4>
+            <p>Infosys Springboard</p>
+            <span class="cert-date">Completed May 2026</span>
+          </div>
+        </div>
+
+        <!-- 3. YugaYatra Internship — Offer Letter + Completion (multi-tab) -->
+        <div class="cert-card cert-card--real cert-card--multi reveal" data-category="web">
+          <div class="cert-tabs cert-tabs--grid">
+            <button class="ct-btn active" data-cert="2" data-img="certs/cert_yugayatra_completion.jpg" data-caption="💼 Internship Completion Certificate · YugaYatra Retail">✅ Completion</button>
+            <button class="ct-btn" data-cert="3" data-img="certs/cert_yugayatra_offer.jpg" data-caption="✉️ Offer Letter · YugaYatra Retail">✉️ Offer Letter</button>
+          </div>
+          <div class="cert-img-wrap">
+            <img class="cert-main-img" src="certs/cert_yugayatra_completion.jpg" alt="YugaYatra Retail Internship Completion Certificate" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">💼</div>
+            <h4>Software Developer Internship</h4>
+            <p>YugaYatra Retail (OPC) Private Limited</p>
+            <span class="cert-date">16 February 2026 – 16 May 2026</span>
+          </div>
+        </div>
+
+        <!-- 4. IJIRT Certificate of Publication (Cloud & AI) -->
+        <div class="cert-card cert-card--real reveal" data-category="cloud" data-cert="4">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_ijirt_publication.jpg" alt="IJIRT Certificate of Publication - Ganesh Kalapad" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">📄</div>
+            <h4>IJIRT Research Publication Certificate</h4>
+            <p>International Journal of Innovative Research in Technology</p>
+            <span class="cert-date">Published Vol. 12 Issue 8, Jan 2026 · ID: 190426</span>
+          </div>
+        </div>
+
+        <!-- 5. Advanced IoT — 2nd Position (IoT & Systems) -->
+        <div class="cert-card cert-card--real reveal" data-category="iot" data-cert="5">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_iot_technex.jpg" alt="Advanced IoT Certificate - IIT Varanasi Technex'24" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">🥈</div>
+            <h4>Advanced IoT — 2nd Position</h4>
+            <p>Innovians Technologies & IIT Varanasi Technex'24</p>
+            <span class="cert-date">20–21 May 2024 · MGM's COE, Nanded</span>
+          </div>
+        </div>
+
+        <!-- 6. NPTEL Internet of Things (IoT & Systems) -->
+        <div class="cert-card cert-card--real reveal" data-category="iot" data-cert="6">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_nptel_iot.jpg" alt="Introduction To Internet of Things - NPTEL IIT Kharagpur" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">🎓</div>
+            <h4>Introduction to Internet of Things</h4>
+            <p>Elite status (65%) · NPTEL IIT Kharagpur & Swayam</p>
+            <span class="cert-date">Jan–Apr 2025 (12-Week Course)</span>
+          </div>
+        </div>
+
+        <!-- 7. Applying AI Principles with Google Cloud (Cloud & AI) -->
+        <div class="cert-card cert-card--real reveal" data-category="cloud" data-cert="7">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_google_cloud_ai.png" alt="Applying AI Principles with Google Cloud" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">🧠</div>
+            <h4>Applying AI Principles with Google Cloud</h4>
+            <p>Google Cloud Training</p>
+            <span class="cert-date">Completed 2025</span>
+          </div>
+        </div>
+
+        <!-- 8. Introduction to Responsible AI (Cloud & AI) -->
+        <div class="cert-card cert-card--real reveal" data-category="cloud" data-cert="8">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_google_cloud_responsible_ai.png" alt="Introduction to Responsible AI" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">🤖</div>
+            <h4>Introduction to Responsible AI</h4>
+            <p>Google Cloud Training</p>
+            <span class="cert-date">Completed 2025</span>
+          </div>
+        </div>
+
+        <!-- Google Cloud Gemini Security (Cloud & AI) -->
+        <div class="cert-card cert-card--real reveal" data-category="cloud" data-cert="21">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_google_cloud_gemini_security.png" alt="Google Cloud Gemini Security & Safety Principles" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">🔒</div>
+            <h4>Gemini Security & Safety Principles</h4>
+            <p>Google Cloud Training</p>
+            <span class="cert-date">Completed 2025</span>
+          </div>
+        </div>
+
+        <!-- Google Cloud Image Generation (Cloud & AI) -->
+        <div class="cert-card cert-card--real reveal" data-category="cloud" data-cert="22">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_google_cloud_image_generation.png" alt="Google Cloud Image Generation with Diffusion Models" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">🎨</div>
+            <h4>Image Generation with Diffusion Models</h4>
+            <p>Google Cloud Training</p>
+            <span class="cert-date">Completed 2025</span>
+          </div>
+        </div>
+
+        <!-- 9. Deep Learning using Python (Cloud & AI) -->
+        <div class="cert-card cert-card--real reveal" data-category="cloud" data-cert="9">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_deep_learning.jpg" alt="Deep Learning using Python Certificate - MGM's COE" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">🎓</div>
+            <h4>Deep Learning using Python</h4>
+            <p>MGM's COE · Dept. of CSE & IEI Students' Chapter</p>
+            <span class="cert-date">24–25 August 2024</span>
+          </div>
+        </div>
+
+        <!-- 10. Abekus Machine Learning Challenge (Cloud & AI) -->
+        <div class="cert-card cert-card--real reveal" data-category="cloud" data-cert="10">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_abekus_ml.jpg" alt="Abekus Machine Learning Fundamentals Challenge Certificate" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">🧠</div>
+            <h4>Machine Learning Fundamentals Challenge</h4>
+            <p>Certificate of Participation · Abekus.ai</p>
+            <span class="cert-date">Completed June 2026</span>
+          </div>
+        </div>
+
+        <!-- 11. Game development using PyGame (Web Dev) -->
+        <div class="cert-card cert-card--real reveal" data-category="web" data-cert="11">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_guvi_pygame.png" alt="Game development using PyGame" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">🎮</div>
+            <h4>Game Development using PyGame</h4>
+            <p>GUVI Geek Networks · Google for Education Partner</p>
+            <span class="cert-date">December 2023 · ID: 78M0923p64b17071Na</span>
+          </div>
+        </div>
+
+        <!-- 12. Programming using Java (Web Dev) -->
+        <div class="cert-card cert-card--real reveal" data-category="web" data-cert="12">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_java_infosys.jpg" alt="Programming using Java" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">☕</div>
+            <h4>Programming using Java</h4>
+            <p>Infosys Springboard</p>
+            <span class="cert-date">Completed December 2023</span>
+          </div>
+        </div>
+
+        <!-- 13. Programming Fundamentals in Python (Web Dev) -->
+        <div class="cert-card cert-card--real reveal" data-category="web" data-cert="13">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_python_infosys.jpg" alt="Programming Fundamentals using Python - Infosys Springboard" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">🐍</div>
+            <h4>Programming Fundamentals using Python</h4>
+            <p>Infosys Springboard</p>
+            <span class="cert-date">April 2024</span>
+          </div>
+        </div>
+
+        <!-- 14. Sparkignite Ideathon 2024 (Community) -->
+        <div class="cert-card cert-card--real reveal" data-category="community" data-cert="14">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_gdsc_sparkignite.png" alt="Sparkignite Ideathon 2024 - GDSC MGM COE" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">🏆</div>
+            <h4>Sparkignite Ideathon 2024</h4>
+            <p>GDSC MGM's College of Engineering, Nanded</p>
+            <span class="cert-date">March 22, 2024 · Participation</span>
+          </div>
+        </div>
+
+        <!-- 15. GDG Campus Solution Challenge (Community) -->
+        <div class="cert-card cert-card--real reveal" data-category="community" data-cert="15">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_gdg_solution_challenge.jpg" alt="GDG on Campus Solution Challenge Participation" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">🏆</div>
+            <h4>GDG Campus Solution Challenge</h4>
+            <p>Certificate of Participation · Google Developer Groups</p>
+            <span class="cert-date">Completed 2025 · ID: 2025H2S01GSC-P29319</span>
+          </div>
+        </div>
+
+        <!-- 16. 2-day Workshop on Internet of Things (IoT & Systems) -->
+        <div class="cert-card cert-card--real reveal" data-category="iot" data-cert="16">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_mgm_iot.jpg" alt="MGM COE 2-day Workshop on Internet of Things (IoT)" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">📡</div>
+            <h4>2-day Workshop on Internet of Things</h4>
+            <p>MGM's COE · Dept. of CSE & IEI Students' Chapter</p>
+            <span class="cert-date">27–28 September 2024</span>
+          </div>
+        </div>
+
+        <!-- 17. Front-end Technologies Workshop (Web Dev) -->
+        <div class="cert-card cert-card--real reveal" data-category="web" data-cert="17">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_mgm_frontend.jpg" alt="Front-end Technologies 2-Day Workshop Certificate - MGM's COE" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">🖼️</div>
+            <h4>Front-end Technologies Workshop</h4>
+            <p>MGM's COE · Dept. of CSE & IEI Students' Chapter</p>
+            <span class="cert-date">26–27 February 2024</span>
+          </div>
+        </div>
+
+        <!-- 18. JavaScript Tutorial Completion (Web Dev) -->
+        <div class="cert-card cert-card--real reveal" data-category="web" data-cert="18">
+          <div class="cert-img-wrap">
+            <img src="certs/cert_masai_javascript.jpg" alt="JavaScript Tutorial Certificate of Completion - Masai Learn" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">💻</div>
+            <h4>JavaScript Tutorial Completion</h4>
+            <p>Masai School · Masai Learn Portal</p>
+            <span class="cert-date">20 December 2023 · ID: 6582c4d036eaa85d14a35b20</span>
+          </div>
+        </div>
+
+        <!-- 19. Build Your Own Generative AI Model — Completion & Participation (Cloud & AI) -->
+        <div class="cert-card cert-card--real cert-card--multi reveal" data-category="cloud">
+          <div class="cert-tabs cert-tabs--grid">
+            <button class="ct-btn active" data-cert="19" data-img="certs/cert_nxtwave_ai_completion.jpg" data-caption="🤖 Build Your Own Generative AI Model — Project Completion · NXT Wave">✅ Completion</button>
+            <button class="ct-btn" data-cert="20" data-img="certs/cert_nxtwave_ai_participation.jpg" data-caption="🤖 Build Your Own Generative AI Model — Participation · NXT Wave">🤝 Participation</button>
+          </div>
+          <div class="cert-img-wrap">
+            <img class="cert-main-img" src="certs/cert_nxtwave_ai_completion.jpg" alt="Build Your Own Generative AI Model Completion" loading="lazy">
+            <div class="cert-overlay">
+              <span class="cert-view">🔍 View Certificate</span>
+            </div>
+          </div>
+          <div class="cert-info">
+            <div class="cert-medal">🤖</div>
+            <h4>Build Your Own Generative AI Model</h4>
+            <p>NXT Wave · NASSCOM Partner</p>
+            <span class="cert-date">September 2023</span>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- Volunteering -->
+      <div class="volunteer-row">
+        <h3 class="vol-title">Volunteering & <em>Community</em></h3>
+        <div class="vol-cards">
+          <div class="vol-card reveal">
+            <span class="vol-icon">🎪</span>
+            <div>
+              <strong>Event Coordinator · VisioTech 2025</strong>
+              <p>Organized coding competitions & logistics for <strong>500+ attendees</strong> at MGM's COE (Apr 24–25, 2025)</p>
+            </div>
+          </div>
+          <div class="vol-card reveal">
+            <span class="vol-icon">👨‍💻</span>
+            <div>
+              <strong>Google Developer Groups (GDG)</strong>
+              <p>Active participant in community events and peer tech talks.</p>
+            </div>
+          </div>
+          <div class="vol-card reveal">
+            <span class="vol-icon">🎓</span>
+            <div>
+              <strong>Student Ambassador · DevTown</strong>
+              <p>Mentored students pursuing tech certifications, organized campus tech drives.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       PUBLICATION
+  ══════════════════════════════════════════ -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="sec-label">// 06 research</div>
+      <h2 class="sec-title">Published <em>Research</em></h2>
+      <div class="pub-grid">
+
+        <!-- Paper 1: Sentiment Analyzer -->
+        <div class="pub-card reveal">
+          <div class="pub-left">
+            <div class="pub-icon">📄</div>
+            <div class="pub-meta">
+              <span class="pub-tag">Peer Reviewed</span>
+              <span class="pub-tag pub-tag--cyan">IJIRT 2026</span>
+            </div>
+          </div>
+          <div class="pub-right">
+            <h3><a href="https://drive.google.com/file/d/1B0_fnnDi552XiBlS-ALdUV1FPyhZpvkA/view" target="_blank" rel="noopener" class="pub-title-link">"Real-Time News & Social Media Sentiment Analyzer + Summarizer" ↗</a></h3>
+            <p class="pub-journal">International Journal of Innovative Research in Technology</p>
+            <p class="pub-vol">Vol. 12, Issue 8, pp. 5305–5309 · 2026</p>
+            <p class="pub-desc">Co-authored research on real-time sentiment classification of news and social media using NLP with automated text summarization. Covers pipeline architecture, multi-source aggregation, and domain-filtered visualization.</p>
+            <div class="pub-footer" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-top:16px; border-top:1px solid var(--border); padding-top:16px;">
+              <div class="pub-topics">
+                <span>NLP</span><span>Sentiment Analysis</span><span>Text Summarization</span><span>Real-Time</span><span>Python</span>
+              </div>
+              <a href="https://drive.google.com/file/d/1B0_fnnDi552XiBlS-ALdUV1FPyhZpvkA/view" target="_blank" rel="noopener" class="pub-btn">Read Paper ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paper 2: FreshIn10 -->
+        <div class="pub-card reveal">
+          <div class="pub-left">
+            <div class="pub-icon">🚀</div>
+            <div class="pub-meta">
+              <span class="pub-tag">Research Paper</span>
+              <span class="pub-tag pub-tag--cyan">2026</span>
+            </div>
+          </div>
+          <div class="pub-right">
+            <h3><a href="https://drive.google.com/file/d/1oX0Y-jlG11DAgvoySdyPUengdudYhpoV/view?usp=sharing" target="_blank" rel="noopener" class="pub-title-link">"FreshIn10: A Decoupled Quick-Commerce Platform with Real-Time Logistics & Geolocation" ↗</a></h3>
+            <p class="pub-journal">MGM's College of Engineering, Nanded · Dept. of Computer Science & Engineering</p>
+            <p class="pub-vol">Ganesh Kalapad · Guide: Ms. K. P. Pople · 2026</p>
+            <p class="pub-desc">Research presenting FreshIn10, an intelligent real-time micro-fulfillment platform built on a decoupled monorepo architecture. Integrates Socket.io-driven WebSocket geolocation telemetry, Haversine dark-store allocation, and Prisma ORM transactional locking. Achieved 78.4% reduction in update latency and sub-150ms communication under high concurrency.</p>
+            <div class="pub-footer" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-top:16px; border-top:1px solid var(--border); padding-top:16px;">
+              <div class="pub-topics">
+                <span>WebSocket</span><span>Next.js</span><span>Prisma ORM</span><span>Geolocation</span><span>Turborepo</span><span>PostgreSQL</span>
+              </div>
+              <a href="https://drive.google.com/file/d/1oX0Y-jlG11DAgvoySdyPUengdudYhpoV/view?usp=sharing" target="_blank" rel="noopener" class="pub-btn">Read Paper ↗</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════════ -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="sec-label">// 07 contact</div>
+      <h2 class="sec-title">Let's <em>Build Together</em></h2>
+      <p class="contact-sub">Have a project, opportunity, or just want to say hello? I'd love to hear from you.</p>
+
+      <div class="contact-grid">
+        <div class="contact-left reveal">
+          <div class="contact-links">
+            <a href="mailto:ganeshkalapadgk@gmail.com" class="clink">
+              <span class="clink-icon">✉️</span>
+              <div>
+                <em>Email</em>
+                <strong>ganeshkalapadgk@gmail.com</strong>
+              </div>
+              <span class="clink-arrow">↗</span>
+            </a>
+            <a href="tel:+918830080013" class="clink">
+              <span class="clink-icon">📱</span>
+              <div>
+                <em>Phone</em>
+                <strong>+91 8830080013</strong>
+              </div>
+              <span class="clink-arrow">↗</span>
+            </a>
+            <a href="https://linkedin.com/in/ganesh-kalapad-4100a4259" target="_blank" rel="noopener" class="clink">
+              <span class="clink-icon">💼</span>
+              <div>
+                <em>LinkedIn</em>
+                <strong>ganesh-kalapad-4100a4259</strong>
+              </div>
+              <span class="clink-arrow">↗</span>
+            </a>
+            <a href="https://github.com/gk155586" target="_blank" rel="noopener" class="clink">
+              <span class="clink-icon">🐙</span>
+              <div>
+                <em>GitHub</em>
+                <strong>github.com/gk155586</strong>
+              </div>
+              <span class="clink-arrow">↗</span>
+            </a>
+            <div class="clink clink--static">
+              <span class="clink-icon">📍</span>
+              <div>
+                <em>Location</em>
+                <strong>Pune, Maharashtra, India</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form id="contactForm" class="contact-form reveal">
+          <div class="cf-group">
+            <input type="text" id="cfName" placeholder="Your Name" required>
+            <label for="cfName">Name</label>
+          </div>
+          <div class="cf-group">
+            <input type="email" id="cfEmail" placeholder="Your Email" required>
+            <label for="cfEmail">Email</label>
+          </div>
+          <div class="cf-group">
+            <input type="text" id="cfSubject" placeholder="Subject" required>
+            <label for="cfSubject">Subject</label>
+          </div>
+          <div class="cf-group">
+            <textarea id="cfMessage" rows="5" placeholder="Your message..." required></textarea>
+            <label for="cfMessage">Message</label>
+          </div>
+          <button type="submit" class="cf-submit">
+            <span>Send Message</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-brand">{ GK }</span>
+        <span class="footer-copy">© 2026 Ganesh Kalapad</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── CERTIFICATE LIGHTBOX ── -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Certificate viewer">
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <button class="lb-next" id="lbNext" aria-label="Next">›</button>
+    <div class="lb-inner">
+      <img id="lbImg" src="" alt="Certificate">
+      <div class="lb-caption" id="lbCaption"></div>
+    </div>
+  </div>
+  <div class="lb-backdrop" id="lbBackdrop"></div>
+
+  <!-- ── BACK TO TOP ── -->
+  <button id="btt" class="btt" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
