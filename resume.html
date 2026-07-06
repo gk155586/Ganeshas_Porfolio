@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ganesh Sadashiv Kalapad - Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      line-height: 1.35;
+      font-size: 10px;
+      padding: 30px 40px;
+      background: white;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    
+    .name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: #475569;
+      font-size: 9px;
+      margin-bottom: 4px;
+    }
+    
+    .contact-info a {
+      color: #1e40af;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .section-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #0f172a;
+      border-bottom: 1.5px solid #cbd5e1;
+      padding-bottom: 2px;
+      margin-top: 10px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .summary {
+      color: #334155;
+      text-align: justify;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+    
+    .skills-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 10px;
+      line-height: 1.3;
+    }
+    
+    .skills-category {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    
+    .skills-list {
+      color: #334155;
+    }
+    
+    .job-title-row {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 6px;
+      margin-bottom: 1px;
+    }
+    
+    .job-company-row {
+      display: flex;
+      justify-content: space-between;
+      color: #475569;
+      font-style: italic;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    
+    .bullet-list {
+      list-style-type: disc;
+      margin-left: 14px;
+      margin-bottom: 6px;
+      color: #334155;
+    }
+    
+    .bullet-list li {
+      margin-bottom: 2.5px;
+      text-align: justify;
+      padding-left: 2px;
+    }
+    
+    .education-row {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 4px;
+      margin-bottom: 1px;
+    }
+    
+    .education-details {
+      display: flex;
+      justify-content: space-between;
+      color: #475569;
+      margin-bottom: 4px;
+    }
+    
+    .achievement-item {
+      color: #334155;
+      margin-bottom: 3px;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 5px;
+      margin-bottom: 2px;
+    }
+    
+    @media print {
+      body {
+        padding: 0;
+        margin: 0;
+        font-size: 9.5px;
+      }
+      .name {
+        font-size: 18px;
+      }
+      @page {
+        size: A4;
+        margin: 0.45in 0.45in;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1 class="name">Ganesh Sadashiv Kalapad</h1>
+    <div class="contact-info">
+      <span>📍 Pune, Maharashtra</span>
+      <span>📞 +91 8830080013</span>
+      <span>✉️ <a href="mailto:ganeshkalapadgk@gmail.com">ganeshkalapadgk@gmail.com</a></span>
+      <span>🔗 <a href="https://linkedin.com/in/ganesh-kalapad-4100a4259" target="_blank">linkedin.com/in/ganesh-kalapad</a></span>
+      <span>💻 <a href="https://github.com/gk155586" target="_blank">github.com/gk155586</a></span>
+    </div>
+  </div>
+
+  <!-- Professional Summary -->
+  <div class="section-title">Professional Summary</div>
+  <p class="summary">
+    Performance-driven Software Engineer with hands-on experience building high-scale, real-time web systems. Experienced in architecting decoupled full-stack platforms using React.js, Node.js, and Next.js, managing monorepos, and containerizing microservices. Confirmed history of developing secure API endpoints and integrating real-time telemetry, backed by academic publications in deep learning and NLP.
+  </p>
+
+  <!-- Technical Expertise -->
+  <div class="section-title">Technical Expertise</div>
+  <div class="skills-grid">
+    <div class="skills-row">
+      <span class="skills-category">Languages & Frameworks:</span>
+      <span class="skills-list">Java, JavaScript (ES6+), TypeScript, Python, C, PHP, Next.js, React, Express.js, JDBC, OOP</span>
+    </div>
+    <div class="skills-row">
+      <span class="skills-category">Databases & Caching:</span>
+      <span class="skills-list">MySQL, PostgreSQL, MongoDB, Redis, Prisma ORM, Mongoose</span>
+    </div>
+    <div class="skills-row">
+      <span class="skills-category">Tools & DevOps Platforms:</span>
+      <span class="skills-list">AWS, Docker, Git/GitHub, Socket.io, Turborepo, REST API Development, JWT Auth, XAMPP, VS Code</span>
+    </div>
+  </div>
+
+  <!-- Work Experience -->
+  <div class="section-title">Work Experience</div>
+  
+  <div class="job-title-row">
+    <span>Software Developer Intern</span>
+    <span>Feb 2026 – May 2026</span>
+  </div>
+  <div class="job-company-row">
+    <span>YugaYatra Retail (OPC) Private Limited</span>
+    <span>Remote</span>
+  </div>
+  <ul class="bullet-list">
+    <li>Architected and developed **FreshIn10**, a production-ready full-stack quick-commerce platform delivering orders within 10 minutes.</li>
+    <li>Built a modular monorepo system encompassing customer, administrative, and delivery portals using Next.js 15 and Turborepo.</li>
+    <li>Developed 50+ secure, robust REST API endpoints using Express.js and Prisma ORM, implementing JWT role-based authorization.</li>
+    <li>Integrated **Socket.io** for real-time order status telemetry and geolocation tracking, reducing update latency by 40%.</li>
+    <li>Optimized application state and database queries using MongoDB, Mongoose, Redis caching, and Zustand global state management.</li>
+    <li>Managed payment gateway integrations with Razorpay for secure client-side checkouts and transaction processing.</li>
+  </ul>
+
+  <div class="job-title-row">
+    <span>Java Developer Intern</span>
+    <span>Jan 2026 (1 Month)</span>
+  </div>
+  <div class="job-company-row">
+    <span>Previous Company</span>
+    <span>Remote</span>
+  </div>
+  <ul class="bullet-list">
+    <li>Contributed to UI layouts and backend controllers for enterprise web applications using Java.</li>
+    <li>Developed database integrations and connected backend services with frontend interfaces to guarantee seamless data flow.</li>
+  </ul>
+
+  <!-- Key Projects -->
+  <div class="section-title">Key Projects</div>
+
+  <div class="project-header">
+    <span>AI E-commerce Personalization Rules Engine</span>
+    <span>React, TypeScript, OpenAI API, Zustand, Tailwind</span>
+  </div>
+  <ul class="bullet-list">
+    <li>Developed an AI-powered engine classifying shoppers into segments (Browser, Discount Seeker, Cart Abandoner) using event streams.</li>
+    <li>Integrated OpenAI API for automated shopper behavior analysis, evidence-based reasoning, and confidence scoring.</li>
+    <li>Built a real-time session simulation interface to test classification updates and personalized discount code triggers.</li>
+  </ul>
+
+  <div class="project-header">
+    <span>SK Photo Studio Administrative Platform</span>
+    <span>Next.js 16, React 19, Tailwind CSS, Framer Motion</span>
+  </div>
+  <ul class="bullet-list">
+    <li>Engineered an administrative platform using Next.js 16 and React 19 to streamline content workflows.</li>
+    <li>Developed a secure administrator dashboard with dynamic "Edit Mode" for content manipulation and database synchronization.</li>
+  </ul>
+
+  <div class="project-header">
+    <span>Real-Time News Sentiment Analyzer</span>
+    <span>Python, NLTK, TextBlob, Pandas, Render</span>
+  </div>
+  <ul class="bullet-list">
+    <li>Built an NLP sentiment analysis pipeline extracting articles from 10+ sources and classifying sentiment in real-time.</li>
+    <li>Deployed an interactive Render dashboard visualizing media sentiments, published in IJIRT (Vol. 12, Issue 8).</li>
+  </ul>
+
+  <!-- Publications -->
+  <div class="section-title">Research Publications</div>
+  <ul class="bullet-list">
+    <li>**Classification of Brain Tumors Using Deep Learning and Transfer Learning Techniques** (IEEE / Journal)
+    <br>Engineered a CNN classifier using VGG16, ResNet50, and MobileNetV2 models, achieving a peak accuracy of **98.6%** on clinical brain scan datasets.</li>
+  </ul>
+
+  <!-- Academic Background -->
+  <div class="section-title">Academic Background</div>
+  
+  <div class="education-row">
+    <span>B.Tech in Computer Science & Engineering</span>
+    <span>2022 – 2026</span>
+  </div>
+  <div class="education-details">
+    <span>MGM's College of Engineering, Nanded</span>
+    <span>CGPA / Percentage: Pursuing</span>
+  </div>
+
+  <div class="education-row">
+    <span>Higher Secondary Education (12th)</span>
+    <span>Class of 2022</span>
+  </div>
+  <div class="education-details">
+    <span>State Board</span>
+    <span>Score: 83%</span>
+  </div>
+
+  <!-- Achievements & Leadership -->
+  <div class="section-title">Achievements & Leadership</div>
+  <p class="achievement-item">
+    • **Devtown Ambassador**: Lead local developer community meetups, coding bootcamps, and software workshops.
+    <br>• **Visiotech 2025 Volunteer**: Facilitated logistics and system configurations for campus-wide technical symposium.
+  </p>
+
+</body>
+</html>
