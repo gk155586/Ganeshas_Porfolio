@@ -383,7 +383,7 @@ html[data-theme="light"] .nav-brand:hover .gk-nav-logo path {
   overflow:hidden;
   transition:all .3s var(--ease);
 }
-.bento:hover { border-color:var(--border-h); transform:translateY(-2px); }
+.bento:hover { border-color:var(--border-h); }
 
 .bento-code {
   grid-column:1/-1; padding:0;
@@ -629,7 +629,7 @@ html[data-theme="light"] .nav-brand:hover .gk-nav-logo path {
   border-radius:var(--r2); padding:28px;
   transition:all .3s var(--ease);
 }
-.stack-card:hover { border-color:var(--border-h); transform:translateY(-4px); box-shadow:0 8px 40px rgba(99,102,241,.1); }
+.stack-card:hover { border-color:var(--border-h); box-shadow:0 8px 40px rgba(99,102,241,.1); }
 .stack-icon { font-size:1.6rem; margin-bottom:12px; }
 .stack-card h3 { font-family:var(--font-d); font-size:1rem; font-weight:700; margin-bottom:16px; }
 .tags { display:flex; flex-wrap:wrap; gap:7px; }
@@ -792,7 +792,7 @@ html[data-theme="light"] .nav-brand:hover .gk-nav-logo path {
   transform: scale(0.95);
   pointer-events: none;
 }
-.proj-card:hover { border-color:var(--border-h); transform:translateY(-4px); }
+.proj-card:hover { border-color:var(--border-h); }
 .proj-glow {
   position:absolute; inset:0; pointer-events:none;
   background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(99,102,241,.06) 0%, transparent 60%);
@@ -991,7 +991,6 @@ html[data-theme="light"] .nav-brand:hover .gk-nav-logo path {
 }
 .cert-card--real:hover {
   border-color: var(--border-h);
-  transform: translateY(-5px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -1124,7 +1123,7 @@ html[data-theme="light"] .ct-btn.active {
   gap: 8px;
   transition: all 0.3s var(--ease);
 }
-.cert-card--badge:hover { border-color:var(--border-h); transform:translateY(-5px); }
+.cert-card--badge:hover { border-color:var(--border-h); }
 .cert-badge-glow {
   position:absolute; top:-40px; right:-40px;
   width:120px; height:120px; border-radius:50%;
@@ -1152,7 +1151,7 @@ html[data-theme="light"] .ct-btn.active {
   border-radius:var(--r); padding:20px;
   transition:all .3s;
 }
-.vol-card:hover { border-color:var(--border-h); transform:translateY(-3px); }
+.vol-card:hover { border-color:var(--border-h); }
 .vol-icon { font-size:1.6rem; flex-shrink:0; }
 .vol-card strong { display:block; font-size:.9rem; margin-bottom:6px; }
 .vol-card p { font-size:.82rem; color:var(--text2); line-height:1.6; }
