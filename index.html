@@ -76,17 +76,29 @@
 
   <!-- ── LOADER ── -->
   <div id="loader" class="loader">
-    <svg class="loader-svg" viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"/>
-      <circle class="loader-ring" cx="50" cy="50" r="45" fill="none" stroke="url(#lg)" stroke-width="2" stroke-linecap="round"/>
-      <defs>
-        <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#6366f1"/>
-          <stop offset="100%" stop-color="#06b6d4"/>
-        </linearGradient>
-      </defs>
-    </svg>
-    <span class="loader-label">GK</span>
+    <div class="loader-logo-wrap">
+      <svg class="gk-logo-svg" viewBox="0 0 180 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#6366f1" />
+            <stop offset="100%" stop-color="#06b6d4" />
+          </linearGradient>
+          <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+        </defs>
+        <!-- Glow layer -->
+        <g filter="url(#logoGlow)">
+          <!-- Letter G -->
+          <path class="gk-path gk-path-g" d="M 65 25 C 40 25, 30 45, 30 55 C 30 65, 40 85, 65 85 C 80 85, 85 75, 85 65 L 55 65 L 55 52 L 85 52" fill="none" stroke="url(#logoGrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+          <!-- Letter K -->
+          <path class="gk-path gk-path-k" d="M 105 20 L 105 85 M 105 52 L 140 20 M 120 40 L 145 85" fill="none" stroke="url(#logoGrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <!-- Subtitle text -->
+        <text class="gk-logo-text" x="90" y="98" text-anchor="middle" fill="url(#logoGrad)">PORTFOLIO</text>
+      </svg>
+    </div>
   </div>
 
 
@@ -96,8 +108,19 @@
 
   <!-- ── NAV ── -->
   <nav id="nav" class="nav">
-    <a href="#" class="nav-brand">
-      <span class="brand-bracket">{</span> GK <span class="brand-bracket">}</span>
+    <a href="#" class="nav-brand" aria-label="Ganesh Kalapad Home">
+      <svg class="gk-nav-logo" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg" style="height: 28px; width: auto;">
+        <defs>
+          <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#6366f1" />
+            <stop offset="100%" stop-color="#06b6d4" />
+          </linearGradient>
+        </defs>
+        <!-- Letter G -->
+        <path d="M 55 25 C 35 25, 25 45, 25 55 C 25 65, 35 85, 55 85 C 70 85, 75 75, 75 65 L 50 65 L 50 52 L 75 52" fill="none" stroke="url(#navLogoGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+        <!-- Letter K -->
+        <path d="M 95 20 L 95 85 M 95 52 L 130 20 M 110 40 L 135 85" fill="none" stroke="url(#navLogoGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#about" class="nl">About</a>
@@ -224,19 +247,20 @@
           <!-- Live GitHub Stats Bento Card -->
           <div class="bento bento-github" style="grid-column: 1 / -1; padding: 20px; display: flex; flex-direction: column; gap: 12px; background: linear-gradient(135deg, rgba(99, 102, 241, 0.06), rgba(6, 182, 212, 0.04));">
             <span style="font-family: var(--font-m); font-size: 0.68rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; display: block;">💻 Live GitHub Stats</span>
-            <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-              <a href="https://github.com/gk155586" target="_blank" rel="noopener" style="width: 100%; display: flex; justify-content: center;">
-                <img id="githubStatsImg" src="https://github-readme-stats.vercel.app/api?username=gk155586&show_icons=true&theme=transparent&title_color=06b6d4&icon_color=6366f1&text_color=cbd5e1&hide_border=true" alt="Ganesh Kalapad GitHub Stats" loading="lazy" style="width: 100%; max-width: 440px; height: auto;">
+            <div style="display: flex; justify-content: center; align-items: center; width: 100%; min-height: 120px;">
+              <a href="https://github.com/gk155586" target="_blank" rel="noopener" style="width: 100%; display: flex; justify-content: center; text-decoration: none;">
+                <img id="githubStatsImg" src="https://github-readme-stats.vercel.app/api?username=gk155586&show_icons=true&theme=transparent&title_color=06b6d4&icon_color=6366f1&text_color=cbd5e1&hide_border=true" alt="Ganesh Kalapad GitHub Stats" loading="lazy" style="width: 100%; max-width: 440px; height: auto;" onerror="handleGithubStatsError(this)">
+                <div id="githubStatsFallback" style="display: none; text-align: center; padding: 18px 12px; background: rgba(0,0,0,0.2); border-radius: 12px; border: 1px solid var(--border); width: 100%; max-width: 440px; box-shadow: 0 8px 32px rgba(0,0,0,0.25);">
+                  <span style="font-size: 1.4rem; display: block; margin-bottom: 6px;">🐙</span>
+                  <h4 style="font-family: var(--font-d); font-size: 0.85rem; margin-bottom: 4px; color: var(--text); font-weight: 700;">@gk155586 on GitHub</h4>
+                  <p style="font-size: 0.75rem; color: var(--text2); line-height: 1.5; margin-bottom: 12px;">Active in Full-Stack, Java Backend, and Real-Time Systems. Click to explore my 20+ projects and contributions directly on GitHub!</p>
+                  <span style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.72rem; color: var(--cyan); font-weight: 600;">Visit Profile ↗</span>
+                </div>
               </a>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="hero-scroll">
-      <div class="scroll-track"><div class="scroll-thumb"></div></div>
-      <span>scroll</span>
     </div>
   </section>
 
@@ -245,7 +269,7 @@
   ══════════════════════════════════════════ -->
   <section id="about" class="section">
     <div class="container">
-      <div class="sec-label">// 01 about</div>
+      <div class="sec-label">01 about</div>
       <h2 class="sec-title">Who I <em>Am</em></h2>
 
       <div class="about-layout">
@@ -301,7 +325,7 @@
   ══════════════════════════════════════════ -->
   <section id="skills" class="section section-dark">
     <div class="container">
-      <div class="sec-label">// 02 tech stack</div>
+      <div class="sec-label">02 tech stack</div>
       <h2 class="sec-title">What I <em>Build With</em></h2>
 
       <div class="stack-grid">
@@ -384,7 +408,7 @@
   ══════════════════════════════════════════ -->
   <section id="experience" class="section">
     <div class="container">
-      <div class="sec-label">// 03 experience</div>
+      <div class="sec-label">03 experience</div>
       <h2 class="sec-title">Where I've <em>Worked</em></h2>
 
       <div class="xp-list">
@@ -438,7 +462,7 @@
   ══════════════════════════════════════════ -->
   <section id="projects" class="section section-dark">
     <div class="container">
-      <div class="sec-label">// 04 projects</div>
+      <div class="sec-label">04 projects</div>
       <h2 class="sec-title">Things I've <em>Built</em></h2>
 
       <!-- Project Showcase Filter Bar -->
@@ -631,7 +655,7 @@
   ══════════════════════════════════════════ -->
   <section id="certs" class="section">
     <div class="container">
-      <div class="sec-label">// 05 certifications</div>
+      <div class="sec-label">05 certifications</div>
       <h2 class="sec-title">Credentials & <em>Achievements</em></h2>
 
       <!-- Certificate Filters -->
@@ -1028,7 +1052,7 @@
   ══════════════════════════════════════════ -->
   <section class="section section-dark">
     <div class="container">
-      <div class="sec-label">// 06 research</div>
+      <div class="sec-label">06 research</div>
       <h2 class="sec-title">Published <em>Research</em></h2>
       <div class="pub-grid">
 
@@ -1087,7 +1111,7 @@
   ══════════════════════════════════════════ -->
   <section id="contact" class="section">
     <div class="container">
-      <div class="sec-label">// 07 contact</div>
+      <div class="sec-label">07 contact</div>
       <h2 class="sec-title">Let's <em>Build Together</em></h2>
       <p class="contact-sub">Have a project, opportunity, or just want to say hello? I'd love to hear from you.</p>
 

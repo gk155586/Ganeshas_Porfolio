@@ -10,8 +10,19 @@ function initLoader() {
   setTimeout(() => {
     el.classList.add('out');
     document.body.style.overflow = '';
-  }, 2000);
+  }, 3600);
 }
+
+window.handleGithubStatsError = function(img) {
+  const mirror = 'https://github-readme-stats-anuraghazra.vercel.app/api?username=gk155586&show_icons=true&theme=transparent&title_color=06b6d4&icon_color=6366f1&text_color=cbd5e1&hide_border=true';
+  if (img.src !== mirror) {
+    img.src = mirror;
+  } else {
+    img.style.display = 'none';
+    const fb = document.getElementById('githubStatsFallback');
+    if (fb) fb.style.display = 'block';
+  }
+};
 
 
 /* ════════════════════════════════════════════
