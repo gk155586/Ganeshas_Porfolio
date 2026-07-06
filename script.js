@@ -6,23 +6,138 @@
 function initLoader() {
   const el = document.getElementById('loader');
   if (!el) return;
-  document.body.style.overflow = 'hidden';
-  setTimeout(() => {
-    el.classList.add('out');
+  
+  const isVisited = sessionStorage.getItem('gk_portfolio_visited');
+  if (isVisited === 'true') {
+    el.style.transition = 'opacity 0.2s ease, visibility 0.2s';
+    el.style.opacity = '0';
+    el.style.visibility = 'hidden';
+    el.style.pointerEvents = 'none';
     document.body.style.overflow = '';
-  }, 3600);
+  } else {
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      el.classList.add('out');
+      document.body.style.overflow = '';
+      sessionStorage.setItem('gk_portfolio_visited', 'true');
+    }, 3600);
+  }
 }
 
-window.handleGithubStatsError = function(img) {
-  const mirror = 'https://github-readme-stats-anuraghazra.vercel.app/api?username=gk155586&show_icons=true&theme=transparent&title_color=06b6d4&icon_color=6366f1&text_color=cbd5e1&hide_border=true';
-  if (img.src !== mirror) {
-    img.src = mirror;
-  } else {
-    img.style.display = 'none';
-    const fb = document.getElementById('githubStatsFallback');
-    if (fb) fb.style.display = 'block';
+function initNavBrandClick() {
+  const brand = document.querySelector('.nav-brand');
+  const loader = document.getElementById('loader');
+  if (!brand || !loader) return;
+  
+  brand.addEventListener('click', (e) => {
+    e.preventDefault();
+    loader.style.transition = 'opacity 0.4s ease, visibility 0.4s';
+    loader.classList.remove('out');
+    loader.style.opacity = '1';
+    loader.style.visibility = 'visible';
+    loader.style.pointerEvents = 'auto';
+    document.body.style.overflow = 'hidden';
+    
+    const svg = loader.querySelector('.gk-logo-svg');
+    if (svg) {
+      const newSvg = svg.cloneNode(true);
+      svg.parentNode.replaceChild(newSvg, svg);
+    }
+    
+    setTimeout(() => {
+      loader.classList.add('out');
+      document.body.style.overflow = '';
+    }, 3600);
+  });
+}
+
+async function loadGithubStats() {
+  const container = document.getElementById('githubStatsContainer');
+  if (!container) return;
+  
+  try {
+    const userRes = await fetch('https://api.github.com/users/gk155586');
+    if (!userRes.ok) throw new Error('GitHub API rate limited');
+    const userData = await userRes.json();
+    
+    const reposRes = await fetch('https://api.github.com/users/gk155586/repos?per_page=100');
+    let starsCount = 0;
+    let langCounts = {};
+    
+    if (reposRes.ok) {
+      const repos = await reposRes.json();
+      repos.forEach(repo => {
+        starsCount += repo.stargazers_count;
+        if (repo.language) {
+          langCounts[repo.language] = (langCounts[repo.language] || 0) + 1;
+        }
+      });
+    }
+    
+    const topLangs = Object.entries(langCounts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 3)
+      .map(entry => entry[0])
+      .join(', ');
+      
+    container.innerHTML = `
+      <div class="github-stats-grid">
+        <div class="gs-card">
+          <span class="gs-num" data-val="${userData.public_repos}">${userData.public_repos}</span>
+          <span class="gs-label">Repositories</span>
+        </div>
+        <div class="gs-card">
+          <span class="gs-num" data-val="${starsCount}">${starsCount}</span>
+          <span class="gs-label">Stars Recd</span>
+        </div>
+        <div class="gs-card">
+          <span class="gs-num" data-val="${userData.followers}">${userData.followers}</span>
+          <span class="gs-label">Followers</span>
+        </div>
+        <div class="gs-card">
+          <span class="gs-languages">${topLangs || 'Java, JS, TS'}</span>
+          <span class="gs-label">Core Tech</span>
+        </div>
+      </div>
+      <a href="https://github.com/gk155586" target="_blank" rel="noopener" class="gs-btn">
+        <span>View Full GitHub Profile</span> ↗
+      </a>
+    `;
+    
+    // Animate stats numbers if counters are initialized
+    const nums = container.querySelectorAll('.gs-num');
+    nums.forEach(num => {
+      const val = parseInt(num.getAttribute('data-val')) || 0;
+      if (val === 0) return;
+      let start = 0;
+      const duration = 1200;
+      const steps = 40;
+      const stepTime = duration / steps;
+      const increment = Math.max(1, Math.ceil(val / steps));
+      
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= val) {
+          num.textContent = val;
+          clearInterval(timer);
+        } else {
+          num.textContent = start;
+        }
+      }, stepTime);
+    });
+    
+  } catch (err) {
+    container.innerHTML = `
+      <div class="github-stats-fallback-card">
+        <h4>Ganesh Kalapad</h4>
+        <p>Explore my contributions, activity feeds, and open-source packages directly on GitHub.</p>
+        <a href="https://github.com/gk155586" target="_blank" rel="noopener" class="gs-btn">
+          <span>Go to GitHub Profile</span> ↗
+        </a>
+      </div>
+    `;
   }
-};
+}
 
 
 /* ════════════════════════════════════════════
@@ -835,6 +950,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectFilters();
   initResumeModal();
   initCommandPalette();
+  initNavBrandClick();
+  loadGithubStats();
   logBranding();
 });
 

@@ -138,33 +138,38 @@ img { max-width:100%; display:block; }
   align-items: center;
 }
 .gk-logo-svg {
-  width: 100%;
-  height: auto;
+  width: 140px;
+  height: 140px;
+}
+.gk-hex {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: drawHex 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 .gk-path {
-  stroke-dasharray: 400;
-  stroke-dashoffset: 400;
-  animation: drawLogo 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
 }
 .gk-path-g {
-  animation-delay: 0.1s;
+  animation: drawPath 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
 }
 .gk-path-k {
-  animation-delay: 0.7s;
+  animation: drawPath 1.6s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
 }
 .gk-logo-text {
   font-family: var(--font-m);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.45em;
   opacity: 0;
   transform: translateY(5px);
   animation: fadeText 1.2s ease 1.8s forwards;
 }
-@keyframes drawLogo {
-  to {
-    stroke-dashoffset: 0;
-  }
+@keyframes drawHex {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes drawPath {
+  to { stroke-dashoffset: 0; }
 }
 @keyframes fadeText {
   to {
@@ -1922,6 +1927,110 @@ body::after {
   }
   .bento, .bento-code, .bento-loc, .bento-hire, .bento-github {
     grid-column: auto !important;
+  }
+}
+
+/* ── Live GitHub Stats Custom Layout ── */
+.github-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.gs-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s var(--ease);
+}
+.gs-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+  background: rgba(99,102,241,0.04);
+}
+.gs-num {
+  font-family: var(--font-d);
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.gs-languages {
+  font-family: var(--font-d);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--cyan);
+  line-height: 1.2;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.gs-label {
+  font-size: 0.65rem;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.gs-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 24px;
+  border-radius: 10px;
+  background: var(--grad);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.25);
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+.gs-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+.github-stats-fallback-card {
+  text-align: center;
+  padding: 24px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 12px;
+  width: 100%;
+}
+.github-stats-fallback-card h4 {
+  font-family: var(--font-d);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.github-stats-fallback-card p {
+  font-size: 0.8rem;
+  color: var(--text2);
+  margin-bottom: 16px;
+}
+@keyframes spinLogo {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .github-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
   }
 }
 
