@@ -92,14 +92,19 @@ function initHeroCanvas() {
     { x: 0.8, y: 0.1, r: 0.2, c: [16, 185, 129], s: -0.003 },
   ];
 
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   function resize() {
     W = canvas.width = canvas.offsetWidth;
     H = canvas.height = canvas.offsetHeight;
+    if (prefersReduced) draw();
   }
 
   function draw() {
     ctx.clearRect(0, 0, W, H);
-    t += 0.5;
+    if (!prefersReduced) {
+      t += 0.5;
+    }
 
     orbs.forEach(o => {
       const x = (o.x + Math.sin(t * o.s + o.x * 10) * 0.08) * W;
@@ -114,12 +119,16 @@ function initHeroCanvas() {
       ctx.fill();
     });
 
-    requestAnimationFrame(draw);
+    if (!prefersReduced) {
+      requestAnimationFrame(draw);
+    }
   }
 
   resize();
   window.addEventListener('resize', resize);
-  draw();
+  if (!prefersReduced) {
+    draw();
+  }
 }
 
 /* ════════════════════════════════════════════

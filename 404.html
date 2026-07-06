@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #030712;
+      --text: #f9fafb;
+      --text2: #9ca3af;
+      --cyan: #06b6d4;
+      --indigo: #6366f1;
+      --grad: linear-gradient(135deg, var(--indigo) 0%, var(--cyan) 100%);
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.02;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+    .container {
+      text-align: center;
+      padding: 40px;
+      z-index: 10;
+    }
+    .code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6rem;
+      font-weight: 700;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0 0 16px;
+      letter-spacing: -0.05em;
+    }
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 12px;
+    }
+    p {
+      color: var(--text2);
+      font-size: 1rem;
+      max-width: 400px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--grad);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 12px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(99,102,241,0.3);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(99,102,241,0.55);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="code">404</div>
+    <h1>Lost in Space?</h1>
+    <p>The page you are looking for does not exist or has been moved to a new coordinate.</p>
+    <a href="/" class="btn">Return Home</a>
+  </div>
+</body>
+</html>
