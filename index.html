@@ -1,16 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ganesh Kalapad · Full Stack Engineer</title>
-  <meta name="description" content="Portfolio of Ganesh Sadashiv Kalapad — Full Stack Developer & Software Engineer from Pune. Expert in Next.js, React, Node.js, AWS.">
+  <meta name="description" content="Portfolio of Ganesh Sadashiv Kalapad — Full Stack Developer & Software Engineer from Pune. Expert in React.js, Node.js, Express.js, MongoDB, Redis, and Socket.io.">
   <meta name="author" content="Ganesh Sadashiv Kalapad">
   <link rel="icon" href="favicon.png" type="image/png">
+  
+  <!-- DNS & Preconnect Optimization -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://github-readme-stats.vercel.app">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ganesh Kalapad · Full Stack Engineer">
+  <meta property="og:description" content="Portfolio of Ganesh Sadashiv Kalapad — Full-Stack Engineer and Real-Time Systems developer. Experience at YugaYatra Retail.">
+  <meta property="og:image" content="freshin10_preview.png">
+  <meta property="og:url" content="https://ganeshkalapad.dev">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ganesh Kalapad · Full Stack Engineer">
+  <meta name="twitter:description" content="Full-stack portfolio showcasing Quick-Commerce and AI system integrations.">
+  <meta name="twitter:image" content="freshin10_preview.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+  <!-- Anti-flash Light/Dark Mode Initialization Script -->
+  <script>
+    (function () {
+      const theme = localStorage.getItem('portfolio-theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ganesh Sadashiv Kalapad",
+      "jobTitle": "Full Stack Engineer",
+      "url": "https://ganeshkalapad.dev",
+      "sameAs": [
+        "https://github.com/gk155586",
+        "https://linkedin.com/in/ganesh-kalapad-4100a4259"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "MGM's College of Engineering, Nanded",
+        "sameAs": "https://mgmcen.ac.in"
+      },
+      "knowsAbout": [
+        "Full-Stack Development",
+        "React.js",
+        "Vite",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Redis",
+        "Socket.io",
+        "Java",
+        "Docker",
+        "REST APIs"
+      ]
+    }
+  </script>
 </head>
 <body>
 
@@ -46,11 +106,18 @@
       <a href="#projects" class="nl">Projects</a>
       <a href="#certs" class="nl">Certs</a>
       <a href="#contact" class="nl">Contact</a>
+      <a href="#" id="navResumeBtn" class="nl nav-resume">Resume 📥</a>
       <a href="mailto:ganeshkalapadgk@gmail.com" class="nl nav-hire">Hire Me ↗</a>
     </div>
-    <button class="nav-burger" id="burger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="nav-burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- ══════════════════════════════════════════
@@ -80,6 +147,7 @@
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn-main">View Work <span>→</span></a>
+          <a href="#" id="heroResumeBtn" class="btn-ghost" style="border-color:var(--cyan);color:var(--cyan);background:rgba(6,182,212,0.03);">Resume 📥</a>
           <a href="#contact" class="btn-ghost">Say Hello</a>
         </div>
         <div class="hero-socials">
@@ -151,6 +219,16 @@
               <span>📄 2 Publications</span>
             </div>
             <a href="mailto:ganeshkalapadgk@gmail.com" class="hire-cta">Let's Connect →</a>
+          </div>
+
+          <!-- Live GitHub Stats Bento Card -->
+          <div class="bento bento-github" style="grid-column: 1 / -1; padding: 20px; display: flex; flex-direction: column; gap: 12px; background: linear-gradient(135deg, rgba(99, 102, 241, 0.06), rgba(6, 182, 212, 0.04));">
+            <span style="font-family: var(--font-m); font-size: 0.68rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; display: block;">💻 Live GitHub Stats</span>
+            <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+              <a href="https://github.com/gk155586" target="_blank" rel="noopener" style="width: 100%; display: flex; justify-content: center;">
+                <img id="githubStatsImg" src="https://github-readme-stats.vercel.app/api?username=gk155586&show_icons=true&theme=transparent&title_color=06b6d4&icon_color=6366f1&text_color=cbd5e1&hide_border=true" alt="Ganesh Kalapad GitHub Stats" loading="lazy" style="width: 100%; max-width: 440px; height: auto;">
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -224,57 +302,59 @@
           <div class="stack-icon">💻</div>
           <h3>Languages</h3>
           <div class="tags">
-            <span class="tag tag--a">Java</span>
-            <span class="tag tag--a">TypeScript</span>
-            <span class="tag tag--a">JavaScript</span>
-            <span class="tag tag--b">Python</span>
-            <span class="tag tag--b">C</span>
-            <span class="tag tag--a">DSA</span>
-            <span class="tag tag--a">OOP</span>
+            <span class="tag tag--a"><i class="devicon-java-plain colored"></i> Java</span>
+            <span class="tag tag--a"><i class="devicon-typescript-plain colored"></i> TypeScript</span>
+            <span class="tag tag--a"><i class="devicon-javascript-plain colored"></i> JavaScript</span>
+            <span class="tag tag--b"><i class="devicon-python-plain colored"></i> Python</span>
+            <span class="tag tag--b"><i class="devicon-c-plain colored"></i> C</span>
+            <span class="tag tag--a"><i class="devicon-matchbox-plain colored"></i> DSA</span>
+            <span class="tag tag--a"><i class="devicon-unifiedtemplate-plain colored"></i> OOP</span>
           </div>
         </div>
         <div class="stack-card reveal" data-delay="1">
           <div class="stack-icon">🖼️</div>
           <h3>Frontend</h3>
           <div class="tags">
-            <span class="tag tag--a">Next.js</span>
-            <span class="tag tag--a">React.js</span>
-            <span class="tag tag--a">Tailwind CSS</span>
-            <span class="tag tag--a">HTML5 / CSS3</span>
-            <span class="tag tag--b">Framer Motion</span>
-            <span class="tag tag--b">Zustand</span>
+            <span class="tag tag--a"><i class="devicon-nextjs-plain"></i> Next.js</span>
+            <span class="tag tag--a"><i class="devicon-react-original colored"></i> React.js</span>
+            <span class="tag tag--a"><i class="devicon-tailwindcss-original colored"></i> Tailwind CSS</span>
+            <span class="tag tag--a"><i class="devicon-html5-plain colored"></i> HTML5</span>
+            <span class="tag tag--a"><i class="devicon-css3-plain colored"></i> CSS3</span>
+            <span class="tag tag--b"><i class="devicon-framer-original"></i> Framer Motion</span>
+            <span class="tag tag--b"><i class="devicon-redux-original colored"></i> Zustand</span>
           </div>
         </div>
         <div class="stack-card reveal" data-delay="2">
           <div class="stack-icon">⚙️</div>
           <h3>Backend</h3>
           <div class="tags">
-            <span class="tag tag--a">Node.js</span>
-            <span class="tag tag--a">Express.js</span>
-            <span class="tag tag--a">REST APIs</span>
-            <span class="tag tag--a">Socket.io</span>
-            <span class="tag tag--a">JWT Auth</span>
-            <span class="tag tag--b">PHP</span>
+            <span class="tag tag--a"><i class="devicon-nodejs-plain colored"></i> Node.js</span>
+            <span class="tag tag--a"><i class="devicon-express-original"></i> Express.js</span>
+            <span class="tag tag--a"><i class="devicon-openapi-plain colored"></i> REST APIs</span>
+            <span class="tag tag--a"><i class="devicon-socketio-original"></i> Socket.io</span>
+            <span class="tag tag--a"><i class="devicon-oauth-plain colored"></i> JWT Auth</span>
+            <span class="tag tag--b"><i class="devicon-php-plain colored"></i> PHP</span>
           </div>
         </div>
         <div class="stack-card reveal" data-delay="3">
           <div class="stack-icon">🗄️</div>
           <h3>Databases</h3>
           <div class="tags">
-            <span class="tag tag--a">PostgreSQL</span>
-            <span class="tag tag--a">MySQL</span>
-            <span class="tag tag--a">MongoDB</span>
-            <span class="tag tag--a">Prisma ORM</span>
+            <span class="tag tag--a"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span>
+            <span class="tag tag--a"><i class="devicon-mysql-plain colored"></i> MySQL</span>
+            <span class="tag tag--a"><i class="devicon-mongodb-plain colored"></i> MongoDB</span>
+            <span class="tag tag--a"><i class="devicon-prisma-original"></i> Prisma ORM</span>
           </div>
         </div>
         <div class="stack-card reveal" data-delay="4">
           <div class="stack-icon">☁️</div>
           <h3>DevOps & Cloud</h3>
           <div class="tags">
-            <span class="tag tag--a">AWS</span>
-            <span class="tag tag--a">Vercel</span>
-            <span class="tag tag--a">Render</span>
-            <span class="tag tag--a">Git / GitHub</span>
+            <span class="tag tag--a"><i class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS</span>
+            <span class="tag tag--a"><i class="devicon-vercel-original"></i> Vercel</span>
+            <span class="tag tag--a"><i class="devicon-render-plain colored"></i> Render</span>
+            <span class="tag tag--a"><i class="devicon-git-plain colored"></i> Git</span>
+            <span class="tag tag--a"><i class="devicon-github-original"></i> GitHub</span>
             <span class="tag tag--b">Turborepo</span>
           </div>
         </div>
@@ -282,9 +362,9 @@
           <div class="stack-icon">🤖</div>
           <h3>AI Tools</h3>
           <div class="tags">
-            <span class="tag tag--b">OpenAI API</span>
+            <span class="tag tag--b"><i class="devicon-openai-plain"></i> OpenAI API</span>
             <span class="tag tag--b">LangChain</span>
-            <span class="tag tag--b">GitHub Copilot</span>
+            <span class="tag tag--b"><i class="devicon-github-original"></i> Copilot</span>
             <span class="tag tag--b">Gemini</span>
           </div>
         </div>
@@ -308,31 +388,18 @@
             <div class="xp-line"></div>
           </div>
           <div class="xp-body">
-            <h3>Software Engineer Intern</h3>
-            <div class="xp-meta">YugaYatra Retail (OPC) Pvt Ltd · <time>Feb – May 2026</time></div>
+            <h3>Software Developer Intern</h3>
+            <div class="xp-meta">YugaYatra Retail (OPC) Private Limited · Remote · <time>Feb – May 2026</time></div>
             <ul class="xp-points">
-              <li>Contributed to software development, backend API implementations, and frontend component integration.</li>
-              <li>Optimized database queries and system performance to enhance overall reliability.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="xp-item reveal">
-          <div class="xp-left">
-            <div class="xp-dot"></div>
-            <div class="xp-line"></div>
-          </div>
-          <div class="xp-body">
-            <h3>Software Engineer Intern</h3>
-            <div class="xp-meta">FreshIn10 · Remote · <time>Feb – May 2026</time></div>
-            <ul class="xp-points">
-              <li>Architected a <strong>multi-app monorepo</strong> (Customer · Admin · Delivery) using Next.js, TypeScript & Turborepo, serving 3 production apps.</li>
-              <li>Implemented <strong>real-time order tracking</strong> via Socket.io + JWT Auth — reduced latency by <strong>40%</strong>.</li>
-              <li>Developed <strong>50+ RESTful APIs</strong> with Express.js & Prisma ORM on AWS — reduced avg response time by <strong>25%</strong>.</li>
-              <li>Integrated <strong>Razorpay</strong> payment gateway; managed state with <strong>Zustand</strong> across all 3 platforms.</li>
+              <li>Designed and developed a scalable, decoupled full-stack architecture for <strong>FreshIn10</strong>, a production-ready quick-commerce platform delivering groceries within 10 minutes.</li>
+              <li>Built responsive, high-performance user interfaces using <strong>React.js (Vite)</strong> and applied Separation of Concerns (SoC) principles for clean, maintainable code.</li>
+              <li>Developed secure and robust REST APIs with <strong>Node.js</strong> and <strong>Express.js</strong>, implementing JWT Authentication and role-based authorization.</li>
+              <li>Integrated <strong>Socket.io</strong> for real-time Order Geolocation Tracking and delivery telemetry, reducing update latency by <strong>40%</strong>.</li>
+              <li>Optimized database performance and data caching using <strong>MongoDB</strong>, <strong>Mongoose</strong>, and <strong>Redis</strong> to support high concurrency.</li>
+              <li>Utilized <strong>Docker</strong>, Git, and GitHub for containerized deployment and collaborative software engineering workflows.</li>
             </ul>
             <div class="xp-tags">
-              <span>Next.js</span><span>TypeScript</span><span>Socket.io</span><span>AWS</span><span>Prisma</span><span>Razorpay</span><span>Turborepo</span>
+              <span>React.js</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>Redis</span><span>Socket.io</span><span>JWT Auth</span><span>Docker</span><span>REST APIs</span>
             </div>
           </div>
         </div>
@@ -367,10 +434,19 @@
       <div class="sec-label">// 04 projects</div>
       <h2 class="sec-title">Things I've <em>Built</em></h2>
 
+      <!-- Project Showcase Filter Bar -->
+      <div class="proj-filters reveal">
+        <button class="pf-btn active" data-filter="all">All Projects</button>
+        <button class="pf-btn" data-filter="full-stack">Full-Stack</button>
+        <button class="pf-btn" data-filter="ai-ml">AI & NLP</button>
+        <button class="pf-btn" data-filter="systems">Systems & Java</button>
+        <button class="pf-btn" data-filter="web-php">Web Dev</button>
+      </div>
+
       <div class="proj-grid">
 
         <!-- Featured -->
-        <div class="proj-card proj-featured proj-card--has-preview reveal">
+        <div class="proj-card proj-featured proj-card--has-preview reveal" data-category="full-stack">
           <div class="proj-glow"></div>
           <div class="proj-top">
             <span class="proj-badge">★ Featured</span>
@@ -405,9 +481,22 @@
             </div>
           </a>
           <div class="proj-num">01</div>
-          <h3>Multi-App Monorepo & Real-Time Order Platform</h3>
-          <p class="proj-company">FreshIn10 · <span style="color:var(--text2);font-weight:400;">YugaYatra Retail (OPC) Pvt Ltd</span></p>
-          <p class="proj-desc">Architected a full ecosystem — Customer, Admin, and Delivery apps — on a single Turborepo. Real-time order tracking with Socket.io, 50+ RESTful APIs, Razorpay payment gateway, JWT authentication, and Zustand state management, all deployed on AWS.</p>
+          <h3>FreshIn10 — AI-Enabled Quick Commerce Platform with Real-Time Logistics</h3>
+          <p class="proj-company">FreshIn10 · <span style="color:var(--text2);font-weight:400;">YugaYatra Retail (OPC) Private Limited</span></p>
+          <p class="proj-desc">Developed FreshIn10, a production-ready full-stack quick-commerce platform delivering groceries within 10 minutes through a scalable, decoupled architecture featuring real-time logistics, secure authentication, inventory management, and live order tracking.</p>
+          
+          <ul class="proj-points-list">
+            <li>Designed and developed a scalable full-stack architecture.</li>
+            <li>Built responsive user interfaces using React.js (Vite).</li>
+            <li>Developed secure REST APIs with Node.js and Express.js.</li>
+            <li>Implemented JWT Authentication and role-based authorization.</li>
+            <li>Integrated Socket.io for real-time order tracking and delivery updates.</li>
+            <li>Optimized database performance using MongoDB, Mongoose, and Redis.</li>
+            <li>Applied Separation of Concerns (SoC) principles for maintainable architecture.</li>
+            <li>Used Docker, Git, and GitHub for development and deployment workflows.</li>
+            <li>Enhanced performance, security, and responsiveness across the application.</li>
+          </ul>
+
           <!-- Live App Links -->
           <div class="proj-live-links">
             <a href="https://fresh-in10-vqrdg4ff8-gk155586s-projects.vercel.app/" target="_blank" rel="noopener" class="proj-live-btn proj-live-btn--grocery" title="Grocery Customer App">
@@ -431,16 +520,16 @@
           </div>
           <div class="proj-features-row">
             <div class="pf"><span class="pf-icon">⚡</span><span>Real-Time Tracking</span></div>
-            <div class="pf"><span class="pf-icon">💳</span><span>Razorpay Payments</span></div>
             <div class="pf"><span class="pf-icon">🔐</span><span>JWT Auth</span></div>
-            <div class="pf"><span class="pf-icon">📦</span><span>Monorepo Architecture</span></div>
+            <div class="pf"><span class="pf-icon">📦</span><span>Decoupled Stack</span></div>
+            <div class="pf"><span class="pf-icon">💾</span><span>Redis Caching</span></div>
           </div>
           <div class="proj-tech">
-            <span>Next.js</span><span>TypeScript</span><span>Socket.io</span><span>Express.js</span><span>Prisma ORM</span><span>PostgreSQL</span><span>Zustand</span><span>Tailwind CSS</span><span>Razorpay</span><span>Turborepo</span><span>AWS</span><span>Vercel</span>
+            <span>React.js</span><span>Vite</span><span>JavaScript</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span><span>Mongoose</span><span>Redis</span><span>Socket.io</span><span>JWT</span><span>Docker</span><span>Git</span><span>GitHub</span><span>REST APIs</span><span>Full-Stack</span>
           </div>
         </div>
 
-        <div class="proj-card proj-card--has-preview reveal">
+        <div class="proj-card proj-card--has-preview reveal" data-category="ai-ml">
           <div class="proj-glow"></div>
           <div class="proj-top">
             <span class="proj-badge proj-badge--ai">🤖 AI-Powered</span>
@@ -484,7 +573,7 @@
           </div>
         </div>
 
-        <div class="proj-card reveal">
+        <div class="proj-card reveal" data-category="ai-ml">
           <div class="proj-glow"></div>
           <div class="proj-num">03</div>
           <h3>Real-Time News Sentiment Analyzer</h3>
@@ -498,7 +587,7 @@
           </div>
         </div>
 
-        <div class="proj-card reveal">
+        <div class="proj-card reveal" data-category="web-php">
           <div class="proj-glow"></div>
           <div class="proj-top">
             <div></div>
@@ -515,7 +604,7 @@
           </div>
         </div>
 
-        <div class="proj-card reveal">
+        <div class="proj-card reveal" data-category="systems">
           <div class="proj-glow"></div>
           <div class="proj-num">05</div>
           <h3>Library Management System</h3>
@@ -1041,20 +1130,26 @@
         </div>
 
         <form id="contactForm" class="contact-form reveal">
+          <!-- Web3Forms Access Key Hook (fallback to mailto if not set) -->
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+          
+          <!-- Honeypot Spam Protection -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
           <div class="cf-group">
-            <input type="text" id="cfName" placeholder="Your Name" required>
+            <input type="text" id="cfName" name="name" placeholder="Your Name" required>
             <label for="cfName">Name</label>
           </div>
           <div class="cf-group">
-            <input type="email" id="cfEmail" placeholder="Your Email" required>
+            <input type="email" id="cfEmail" name="email" placeholder="Your Email" required>
             <label for="cfEmail">Email</label>
           </div>
           <div class="cf-group">
-            <input type="text" id="cfSubject" placeholder="Subject" required>
+            <input type="text" id="cfSubject" name="subject" placeholder="Subject" required>
             <label for="cfSubject">Subject</label>
           </div>
           <div class="cf-group">
-            <textarea id="cfMessage" rows="5" placeholder="Your message..." required></textarea>
+            <textarea id="cfMessage" name="message" rows="5" placeholder="Your message..." required></textarea>
             <label for="cfMessage">Message</label>
           </div>
           <button type="submit" class="cf-submit">
@@ -1087,6 +1182,87 @@
     </div>
   </div>
   <div class="lb-backdrop" id="lbBackdrop"></div>
+
+  <!-- ── RESUME PREVIEW MODAL ── -->
+  <div id="resumeModal" class="lightbox" role="dialog" aria-modal="true" aria-label="Resume PDF viewer">
+    <button class="lb-close" id="resumeClose" aria-label="Close">✕</button>
+    <div class="lb-inner">
+      <iframe src="Ganesh_Kalapad_Resume.pdf" title="Ganesh Kalapad Resume Preview"></iframe>
+      <div class="resume-modal-footer">
+        <a href="Ganesh_Kalapad_Resume.pdf" download="Ganesh_Kalapad_Resume.pdf" class="btn-main" style="padding: 10px 24px; font-size: 0.8rem; box-shadow: none;">
+          Download Resume 📥
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── COMMAND PALETTE (CMD+K) ── -->
+  <div id="cmdPalette" class="cmd-palette" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="cmd-box">
+      <div class="cmd-header">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="cmdInput" placeholder="Type a command or search..." autocomplete="off">
+        <span class="cmd-esc">ESC</span>
+      </div>
+      <div class="cmd-body">
+        <ul id="cmdList" class="cmd-list">
+          <li class="cmd-item active" data-action="nav" data-target="#about">
+            <span class="cmd-icon">👤</span>
+            <span class="cmd-label">Go to About Section</span>
+            <span class="cmd-shortcut">G A</span>
+          </li>
+          <li class="cmd-item" data-action="nav" data-target="#skills">
+            <span class="cmd-icon">💻</span>
+            <span class="cmd-label">Go to Skills & Stack</span>
+            <span class="cmd-shortcut">G S</span>
+          </li>
+          <li class="cmd-item" data-action="nav" data-target="#experience">
+            <span class="cmd-icon">💼</span>
+            <span class="cmd-label">Go to Work Experience</span>
+            <span class="cmd-shortcut">G W</span>
+          </li>
+          <li class="cmd-item" data-action="nav" data-target="#projects">
+            <span class="cmd-icon">🚀</span>
+            <span class="cmd-label">Go to Projects</span>
+            <span class="cmd-shortcut">G P</span>
+          </li>
+          <li class="cmd-item" data-action="nav" data-target="#certs">
+            <span class="cmd-icon">🏆</span>
+            <span class="cmd-label">Go to Certifications</span>
+            <span class="cmd-shortcut">G C</span>
+          </li>
+          <li class="cmd-item" data-action="nav" data-target="#contact">
+            <span class="cmd-icon">✉️</span>
+            <span class="cmd-label">Go to Contact</span>
+            <span class="cmd-shortcut">G K</span>
+          </li>
+          <li class="cmd-item" data-action="theme">
+            <span class="cmd-icon">🌓</span>
+            <span class="cmd-label">Toggle Dark / Light Theme</span>
+            <span class="cmd-shortcut">T T</span>
+          </li>
+          <li class="cmd-item" data-action="resume">
+            <span class="cmd-icon">📄</span>
+            <span class="cmd-label">Open Resume Preview</span>
+            <span class="cmd-shortcut">O R</span>
+          </li>
+          <li class="cmd-item" data-action="link" data-target="https://github.com/gk155586">
+            <span class="cmd-icon">🐙</span>
+            <span class="cmd-label">Open GitHub Profile</span>
+            <span class="cmd-shortcut">O G</span>
+          </li>
+          <li class="cmd-item" data-action="link" data-target="https://linkedin.com/in/ganesh-kalapad-4100a4259">
+            <span class="cmd-icon">🔗</span>
+            <span class="cmd-label">Open LinkedIn Profile</span>
+            <span class="cmd-shortcut">O L</span>
+          </li>
+        </ul>
+      </div>
+      <div class="cmd-footer">
+        <span>Use <kbd>↑</kbd> <kbd>↓</kbd> to navigate, <kbd>Enter</kbd> to select, <kbd>Esc</kbd> to close.</span>
+      </div>
+    </div>
+  </div>
 
   <!-- ── BACK TO TOP ── -->
   <button id="btt" class="btt" aria-label="Back to top">↑</button>

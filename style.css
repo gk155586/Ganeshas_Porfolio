@@ -37,6 +37,59 @@
   --spring:     cubic-bezier(.34,1.56,.64,1);
 }
 
+/* ── Light Theme Override Variables ── */
+html[data-theme="light"] {
+  --bg:         #f8fafc;
+  --bg2:        #f1f5f9;
+  --bg3:        #e2e8f0;
+  --surface:    rgba(15,23,42,0.035);
+  --surface2:   rgba(15,23,42,0.065);
+  --border:     rgba(15,23,42,0.08);
+  --border-h:   rgba(99,102,241,0.45);
+
+  --text:       #0f172a;
+  --text2:      #334155;
+  --text3:      #64748b;
+}
+
+/* ── Theme Switcher Button ── */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  transition: all 0.3s var(--ease);
+  margin-left: 8px;
+}
+.theme-toggle:hover {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(6,182,212,0.15);
+}
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.5s var(--spring);
+}
+html[data-theme="light"] .theme-toggle svg {
+  transform: rotate(360deg);
+}
+html[data-theme="dark"] .theme-sun { display: none; }
+html[data-theme="light"] .theme-moon { display: none; }
+
 /* ── Reset ── */
 *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; scroll-padding-top:80px; font-size:16px; }
@@ -566,13 +619,55 @@ img { max-width:100%; display:block; }
 /* ════════════════════════════════════════════
    PROJECTS
    ════════════════════════════════════════════ */
+.proj-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  animation: fadeUp .8s .3s var(--ease) both;
+}
+.pf-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-family: var(--font-m);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+.pf-btn:hover {
+  border-color: var(--cyan);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+.pf-btn.active {
+  background: var(--grad);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+}
+
 .proj-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
 .proj-card {
   position:relative; overflow:hidden;
   background:var(--surface); border:1px solid var(--border);
   border-radius:var(--r2); padding:32px;
-  transition:all .3s var(--ease);
+  transition:opacity 0.4s var(--ease), transform 0.4s var(--ease), border-color 0.3s, box-shadow 0.3s;
   display:flex; flex-direction:column; gap:12px;
+  opacity: 1;
+  transform: scale(1);
+}
+.proj-card.hide {
+  display: none !important;
+}
+.proj-card.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
 }
 .proj-card:hover { border-color:var(--border-h); transform:translateY(-4px); }
 .proj-glow {
@@ -638,7 +733,7 @@ img { max-width:100%; display:block; }
 .proj-preview-overlay {
   position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
   background:rgba(0,0,0,.55); opacity:0; transition:opacity .35s var(--ease);
-  backdrop-filter:blur(2px);
+  pointer-events:none; backdrop-filter:blur(2px);
 }
 .proj-preview-cta {
   display:inline-flex; align-items:center; gap:8px;
@@ -1452,4 +1547,229 @@ body::after {
 .edu-item:hover .edu-dot {
   box-shadow: 0 0 0 6px rgba(99,102,241,0.2), 0 0 15px rgba(99,102,241,0.3);
 }
+
+/* ── Devicon & Skill Tag Alignment ── */
+.tag {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+}
+.tag i {
+  font-size: 0.95rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ── Navigation Resume Button ── */
+.nav-resume {
+  margin-left: 8px;
+  border: 1px solid rgba(6, 182, 212, 0.45);
+  background: rgba(6, 182, 212, 0.05);
+  color: var(--cyan) !important;
+  font-weight: 600;
+}
+.nav-resume:hover {
+  background: rgba(6, 182, 212, 0.15) !important;
+  border-color: var(--cyan);
+  color: white !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
+}
+
+/* ── Project Key Contributions List ── */
+.proj-points-list {
+  list-style: none;
+  margin: 14px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.proj-points-list li {
+  font-size: 0.82rem;
+  color: var(--text2);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.5;
+}
+.proj-points-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--cyan);
+  font-size: 0.9rem;
+}
+
+/* ── Resume Modal Viewer Styles ── */
+#resumeModal {
+  z-index: 9100;
+}
+#resumeModal .lb-inner {
+  max-width: 900px;
+  width: 90vw;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7);
+  transform: scale(0.95);
+  transition: transform 0.3s var(--spring);
+}
+#resumeModal.open .lb-inner {
+  transform: scale(1);
+}
+#resumeModal iframe {
+  width: 100%;
+  flex-grow: 1;
+  border: none;
+  background: #fff;
+}
+.resume-modal-footer {
+  padding: 16px;
+  background: var(--bg3);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+@media (max-width: 768px) {
+  #resumeModal .lb-inner {
+    height: 80vh;
+    width: 95vw;
+  }
+}
+
+/* ── Command Palette (Cmd+K) ── */
+.cmd-palette {
+  position: fixed;
+  inset: 0;
+  z-index: 11000;
+  background: rgba(3, 7, 18, 0.75);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s var(--ease);
+}
+.cmd-palette.open {
+  opacity: 1;
+  visibility: visible;
+}
+.cmd-box {
+  width: 90%;
+  max-width: 600px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(99, 102, 241, 0.15);
+  overflow: hidden;
+  transform: translateY(-20px) scale(0.98);
+  transition: all 0.25s var(--ease);
+}
+.cmd-palette.open .cmd-box {
+  transform: translateY(0) scale(1);
+}
+.cmd-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text3);
+}
+.cmd-header input {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1rem;
+}
+.cmd-esc {
+  font-size: 0.7rem;
+  font-family: var(--font-m);
+  padding: 3px 6px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.cmd-body {
+  max-height: 350px;
+  overflow-y: auto;
+}
+.cmd-list {
+  list-style: none;
+  padding: 8px;
+  margin: 0;
+}
+.cmd-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.cmd-item:hover,
+.cmd-item.active {
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--text);
+}
+.cmd-icon {
+  font-size: 1.1rem;
+}
+.cmd-label {
+  flex-grow: 1;
+  font-size: 0.88rem;
+  color: var(--text2);
+}
+.cmd-item:hover .cmd-label,
+.cmd-item.active .cmd-label {
+  color: var(--text);
+}
+.cmd-shortcut {
+  font-size: 0.65rem;
+  font-family: var(--font-m);
+  color: var(--text3);
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.cmd-footer {
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.15);
+  font-size: 0.72rem;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cmd-footer kbd {
+  font-family: var(--font-m);
+  background: var(--surface2);
+  padding: 1px 4px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+/* ── Responsive Bento Grid Override ── */
+@media (max-width: 600px) {
+  .bento-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .bento, .bento-code, .bento-loc, .bento-hire, .bento-github {
+    grid-column: auto !important;
+  }
+}
+
 

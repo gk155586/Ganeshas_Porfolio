@@ -396,23 +396,99 @@ function initSmoothScroll() {
 function initForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
-  form.addEventListener('submit', e => {
+
+  form.addEventListener('submit', async e => {
     e.preventDefault();
+
+    const btn = form.querySelector('.cf-submit');
+    const origText = btn.innerHTML;
+
+    // 1. Honeypot Check
+    const botcheck = form.querySelector('input[name="botcheck"]');
+    if (botcheck && botcheck.checked) {
+      console.warn('Spam submission detected.');
+      return;
+    }
+
+    // 2. Client-Side Validation
     const name = document.getElementById('cfName').value.trim();
     const email = document.getElementById('cfEmail').value.trim();
     const subject = document.getElementById('cfSubject').value.trim();
     const message = document.getElementById('cfMessage').value.trim();
-    if (!name || !email || !subject || !message) return;
 
-    window.location.href = `mailto:ganeshkalapadgk@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Hi Ganesh,\n\nFrom: ${name}\nEmail: ${email}\n\n${message}`)}`;
+    if (!name || name.length < 2) {
+      alert('Please enter your name.');
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+    if (!subject || subject.length < 3) {
+      alert('Please enter a valid subject.');
+      return;
+    }
+    if (!message || message.length < 10) {
+      alert('Please write a message of at least 10 characters.');
+      return;
+    }
 
-    // Success feedback
-    const btn = form.querySelector('.cf-submit');
-    const orig = btn.innerHTML;
-    btn.innerHTML = '✅ Message Sent!';
-    btn.style.background = 'linear-gradient(135deg,#10b981,#06b6d4)';
-    form.reset();
-    setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; }, 3000);
+    btn.disabled = true;
+    btn.innerHTML = 'Sending... ⏳';
+
+    const accessKeyInput = form.querySelector('input[name="access_key"]');
+    const accessKey = accessKeyInput ? accessKeyInput.value : '';
+
+    // If key is not custom set, run fallback mailto link immediately
+    if (!accessKey || accessKey.includes('YOUR_WEB3FORMS_ACCESS_KEY')) {
+      window.location.href = `mailto:ganeshkalapadgk@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Hi Ganesh,\n\nFrom: ${name}\nEmail: ${email}\n\n${message}`)}`;
+      
+      btn.innerHTML = '✅ Fallback Mail Opened!';
+      btn.style.background = 'linear-gradient(135deg, var(--indigo), var(--cyan))';
+      form.reset();
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = origText;
+        btn.style.background = '';
+      }, 3000);
+      return;
+    }
+
+    // Secure async submit to Web3Forms
+    try {
+      const formData = new FormData(form);
+      const json = JSON.stringify(Object.fromEntries(formData));
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      });
+
+      const result = await response.json();
+
+      if (response.status === 200) {
+        btn.innerHTML = '✅ Message Sent!';
+        btn.style.background = 'linear-gradient(135deg, #10b981, #06b6d4)';
+        form.reset();
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+    } catch (err) {
+      console.error(err);
+      btn.innerHTML = '❌ Error sending!';
+      btn.style.background = 'linear-gradient(135deg, #ef4444, #f59e0b)';
+    } finally {
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = origText;
+        btn.style.background = '';
+      }, 4000);
+    }
   });
 }
 
@@ -466,6 +542,256 @@ function initPuneTime() {
 }
 
 /* ════════════════════════════════════════════
+   PROJECT SHOWCASE FILTERING
+   ════════════════════════════════════════════ */
+function initProjectFilters() {
+  const btns = document.querySelectorAll('.pf-btn');
+  const cards = document.querySelectorAll('.proj-card');
+  if (!btns.length || !cards.length) return;
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+
+      cards.forEach(card => {
+        const cat = card.dataset.category;
+        if (filter === 'all' || cat === filter) {
+          card.classList.remove('hide');
+          // Brief timeout for transition trigger
+          setTimeout(() => card.classList.remove('fade-out'), 20);
+        } else {
+          card.classList.add('fade-out');
+          const onTransitionEnd = (e) => {
+            if (e.propertyName === 'opacity' && card.classList.contains('fade-out')) {
+              card.classList.add('hide');
+            }
+            card.removeEventListener('transitionend', onTransitionEnd);
+          };
+          card.addEventListener('transitionend', onTransitionEnd);
+        }
+      });
+      // Force reveal update
+      window.dispatchEvent(new Event('scroll'));
+    });
+  });
+}
+
+/* ════════════════════════════════════════════
+   RESUME PREVIEW MODAL
+   ════════════════════════════════════════════ */
+function initResumeModal() {
+  const modal = document.getElementById('resumeModal');
+  const backdrop = document.getElementById('lbBackdrop');
+  const navBtn = document.getElementById('navResumeBtn');
+  const heroBtn = document.getElementById('heroResumeBtn');
+  const closeBtn = document.getElementById('resumeClose');
+
+  if (!modal || !backdrop) return;
+
+  function open(e) {
+    if (e) e.preventDefault();
+    modal.classList.add('open');
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    modal.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (navBtn) navBtn.addEventListener('click', open);
+  if (heroBtn) heroBtn.addEventListener('click', open);
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', close);
+
+  document.addEventListener('keydown', e => {
+    if (modal.classList.contains('open') && e.key === 'Escape') {
+      close();
+    }
+  });
+}
+
+/* ════════════════════════════════════════════
+   THEME TOGGLE & DYNAMIC GITHUB STATS
+   ════════════════════════════════════════════ */
+function initThemeToggle() {
+  const toggle = document.getElementById('themeToggle');
+  const githubImg = document.getElementById('githubStatsImg');
+  if (!toggle) return;
+
+  function updateGithubStats(theme) {
+    if (!githubImg) return;
+    if (theme === 'light') {
+      githubImg.src = 'https://github-readme-stats.vercel.app/api?username=gk155586&show_icons=true&theme=transparent&title_color=6366f1&icon_color=06b6d4&text_color=334155&hide_border=true';
+    } else {
+      githubImg.src = 'https://github-readme-stats.vercel.app/api?username=gk155586&show_icons=true&theme=transparent&title_color=06b6d4&icon_color=6366f1&text_color=cbd5e1&hide_border=true';
+    }
+  }
+
+  // Set initial image theme
+  const initialTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+  updateGithubStats(initialTheme);
+
+  toggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('portfolio-theme', newTheme);
+    updateGithubStats(newTheme);
+  });
+}
+
+/* ════════════════════════════════════════════
+   COMMAND PALETTE (CMD+K)
+   ════════════════════════════════════════════ */
+function initCommandPalette() {
+  const palette = document.getElementById('cmdPalette');
+  const input = document.getElementById('cmdInput');
+  const list = document.getElementById('cmdList');
+  const items = list ? list.querySelectorAll('.cmd-item') : [];
+
+  if (!palette || !input || !list) return;
+
+  let activeIndex = 0;
+  let visibleItems = Array.from(items);
+
+  function open() {
+    palette.classList.add('open');
+    input.value = '';
+    filter('');
+    setTimeout(() => input.focus(), 50);
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    palette.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function filter(query) {
+    visibleItems = [];
+    const lower = query.toLowerCase();
+
+    items.forEach(item => {
+      const label = item.querySelector('.cmd-label').textContent.toLowerCase();
+      const shortcut = item.querySelector('.cmd-shortcut').textContent.toLowerCase();
+
+      if (label.includes(lower) || shortcut.includes(lower)) {
+        item.style.display = 'flex';
+        visibleItems.push(item);
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    activeIndex = 0;
+    updateActive();
+  }
+
+  function updateActive() {
+    items.forEach(item => item.classList.remove('active'));
+    if (visibleItems.length > 0) {
+      if (activeIndex >= visibleItems.length) activeIndex = 0;
+      if (activeIndex < 0) activeIndex = visibleItems.length - 1;
+      visibleItems[activeIndex].classList.add('active');
+      visibleItems[activeIndex].scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  function execute(item) {
+    if (!item) return;
+    const action = item.getAttribute('data-action');
+    const target = item.getAttribute('data-target');
+
+    close();
+
+    if (action === 'nav') {
+      const el = document.querySelector(target);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (action === 'theme') {
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('portfolio-theme', newTheme);
+      
+      const githubImg = document.getElementById('githubStatsImg');
+      if (githubImg) {
+        if (newTheme === 'light') {
+          githubImg.src = 'https://github-readme-stats.vercel.app/api?username=gk155586&show_icons=true&theme=transparent&title_color=6366f1&icon_color=06b6d4&text_color=334155&hide_border=true';
+        } else {
+          githubImg.src = 'https://github-readme-stats.vercel.app/api?username=gk155586&show_icons=true&theme=transparent&title_color=06b6d4&icon_color=6366f1&text_color=cbd5e1&hide_border=true';
+        }
+      }
+    } else if (action === 'resume') {
+      const resumeModal = document.getElementById('resumeModal');
+      const backdrop = document.getElementById('lbBackdrop');
+      if (resumeModal && backdrop) {
+        resumeModal.classList.add('open');
+        backdrop.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    } else if (action === 'link') {
+      window.open(target, '_blank', 'noopener,noreferrer');
+    }
+  }
+
+  // Bind key shortcut listener
+  window.addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      if (palette.classList.contains('open')) {
+        close();
+      } else {
+        open();
+      }
+    }
+    if (e.key === 'Escape' && palette.classList.contains('open')) {
+      close();
+    }
+  });
+
+  input.addEventListener('input', e => {
+    filter(e.target.value);
+  });
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIndex++;
+      updateActive();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIndex--;
+      updateActive();
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (visibleItems.length > 0) {
+        execute(visibleItems[activeIndex]);
+      }
+    }
+  });
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      execute(item);
+    });
+    item.addEventListener('mouseenter', () => {
+      activeIndex = visibleItems.indexOf(item);
+      updateActive();
+    });
+  });
+
+  palette.addEventListener('click', e => {
+    if (e.target === palette) close();
+  });
+}
+
+/* ════════════════════════════════════════════
    INIT ALL
    ════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
@@ -485,6 +811,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initForm();
   initBentoTilt();
   initPuneTime();
+  initThemeToggle();
+  initProjectFilters();
+  initResumeModal();
+  initCommandPalette();
   logBranding();
 });
 
