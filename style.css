@@ -1311,10 +1311,90 @@ html[data-theme="light"] .ct-btn.active {
 .lb-next:hover { transform:translateY(-50%) scale(1.05); }
 
 /* ════════════════════════════════════════════
+   WHATSAPP FLOAT BUTTON
+   ════════════════════════════════════════════ */
+.wa-float {
+  position: fixed;
+  bottom: 88px;
+  right: 28px;
+  z-index: 950;
+  width: 52px;
+  height: 52px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,.45), 0 2px 8px rgba(0,0,0,.25);
+  transition: transform .3s var(--spring), box-shadow .3s var(--spring), opacity .3s;
+  text-decoration: none;
+  color: #fff;
+  opacity: 1;
+  /* Pulse ring */
+}
+.wa-float::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: rgba(37,211,102,.3);
+  animation: waPulse 2.2s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes waPulse {
+  0%   { transform: scale(1);   opacity: .9; }
+  70%  { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+.wa-float:hover {
+  transform: scale(1.12) translateY(-3px);
+  box-shadow: 0 8px 32px rgba(37,211,102,.6), 0 4px 12px rgba(0,0,0,.3);
+}
+.wa-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  /* Crisp rendering on all displays */
+  shape-rendering: geometricPrecision;
+}
+/* Tooltip */
+.wa-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: #111827;
+  color: #f8fafc;
+  font-family: var(--font);
+  font-size: .75rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .25s, transform .25s;
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
+}
+.wa-tooltip::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: #111827;
+}
+.wa-float:hover .wa-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(-2px);
+}
+
+/* ════════════════════════════════════════════
    BACK TO TOP
    ════════════════════════════════════════════ */
 .btt {
-  position:fixed; bottom:32px; right:32px; z-index:900;
+  position:fixed; bottom:28px; right:28px; z-index:900;
   width:44px; height:44px;
   background:var(--grad); color:white;
   border:none; border-radius:12px;
@@ -1470,6 +1550,12 @@ html, body {
 
   /* Back to top */
   .btt { bottom: 20px; right: 16px; width: 40px; height: 40px; font-size: .95rem; }
+
+  /* WhatsApp button */
+  .wa-float { bottom: 72px; right: 16px; width: 48px; height: 48px; }
+  .wa-icon { width: 24px; height: 24px; }
+  /* Hide tooltip on touch devices — use native long-press or just tap */
+  .wa-tooltip { display: none; }
 }
 
 /* ── ≤ 480px  (Standard phones, portrait) ── */
@@ -1532,6 +1618,10 @@ html, body {
   /* Footer */
   .footer { padding: 24px 0; }
   .footer-copy { font-size: .72rem; }
+
+  /* WhatsApp button */
+  .wa-float { bottom: 68px; right: 14px; width: 46px; height: 46px; }
+  .wa-icon { width: 22px; height: 22px; }
 }
 
 /* ── ≤ 360px  (Small phones) ── */
