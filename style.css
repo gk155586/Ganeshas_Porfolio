@@ -2026,11 +2026,33 @@ body::after {
   to { transform: rotate(360deg); }
 }
 
-@media (max-width: 768px) {
-  .github-stats-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px;
-  }
+/* ── Neon Waves Background Overlay ── */
+.neon-waves-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.95;
+}
+.neon-waves-bg svg {
+  width: 100%;
+  height: 100%;
+}
+html[data-theme="light"] .neon-waves-bg {
+  opacity: 0.45;
+  filter: saturate(0.85);
+}
+
+/* ── GitHub Profile Link Bento Card Hover Effects ── */
+.bento-github-link:hover {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(6, 182, 212, 0.06)) !important;
+  border-color: rgba(99, 102, 241, 0.35) !important;
+}
+.bento-github-link:hover .bento-gh-arrow {
+  transform: translate(3px, -3px);
+  background: rgba(99,102,241,0.2) !important;
+  color: var(--indigo) !important;
 }
 
 
